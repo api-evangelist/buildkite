@@ -1,0 +1,29 @@
+aid: buildkite
+url: https://raw.githubusercontent.com/api-evangelist/buildkite/refs/heads/main/apis.yml
+name: Buildkite
+x-type: company
+description: >-
+  Buildkite is a CI/CD platform with self-hosted agents and a hosted control plane. APIs cover pipelines, builds, agents, jobs, artifacts, and Test Engine.
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - DevOps
+  - CI/CD
+  - Pipelines
+  - Agents
+  - Self-Hosted
+created: '2026-05-08'
+modified: '2026-05-08'
+specificationVersion: '0.19'
+apis: []
+common:
+  - type: Website
+    url: https://buildkite.com/
+  - type: Plans
+    url: plans/buildkite-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/buildkite-rate-limits.yml
+  - type: FinOps
+    url: finops/buildkite-finops.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
