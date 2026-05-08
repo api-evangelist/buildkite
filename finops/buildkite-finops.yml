@@ -5,7 +5,7 @@ provider: Buildkite
 providerId: buildkite
 created: '2026-05-08'
 modified: '2026-05-08'
-reconciled: false
+reconciled: true
 tags:
 - DevOps
 - CI/CD
@@ -15,10 +15,17 @@ tags:
 - FinOps
 - Cost Management
 - FOCUS
-description: FOCUS-aligned FinOps placeholder for Buildkite. Pipeline will replace with real billing details.
-notes: Initial scaffold — billing model has not yet been reconciled.
+description: >-
+  FOCUS-aligned FinOps profile for Buildkite. Costs derive from per-active-user
+  subscription, self-hosted agent fees above the included allowance, hosted
+  vCPU minutes (Linux/Mac), Test Engine test executions, plus the customer's
+  own cloud spend on self-hosted agent infrastructure.
+notes: >-
+  Self-hosted agents shift the bulk of compute cost onto the customer's cloud
+  (AWS/GCP/Azure); Buildkite retains a small per-agent platform fee plus
+  hosted-minute overage. Test Engine adds independent test-execution metering.
 sources:
-- https://buildkite.com/
+- https://buildkite.com/pricing
 - https://focus.finops.org/focus-specification/v1-3/
 alignedWith:
   framework: FinOps Foundation Framework
@@ -27,9 +34,9 @@ alignedWith:
   dataSpecVersion: '1.3'
   dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
 publisherName: Buildkite
-serviceCategory: DevOps
+serviceCategory: DevOps / CI/CD
 billingModel:
-  pricingCategory: To Be Reconciled
+  pricingCategory: Subscription + Usage
   billingFrequency: Monthly
   billingCurrency: USD
   chargeCategories:
@@ -44,23 +51,52 @@ focusColumns:
   InvoiceIssuerName: Buildkite
   BillingCurrency: USD
   ChargeCategory: Usage
+  PricingUnit: active-user / agent / vCPU-minute
 meters:
-- name: api_usage
-  description: Catch-all meter pending reconciliation.
-  unit: varies
+- name: active_users
+  description: Active billable users in the billing month.
+  unit: user-month
+  aggregation: max
+  dimensions:
+  - organization
+- name: self_hosted_agents
+  description: Self-hosted agent count above the Pro-included 10.
+  unit: agent-month
+  aggregation: max
+  dimensions:
+  - organization
+  - cluster
+- name: hosted_vcpu_minutes
+  description: Hosted Linux/Mac vCPU minutes consumed.
+  unit: vCPU-minute
   aggregation: sum
   dimensions:
-  - account
-  - resource
+  - organization
+  - pipeline
+  - os
+- name: test_executions
+  description: Test Engine managed test executions.
+  unit: execution
+  aggregation: sum
+  dimensions:
+  - organization
+  - suite
+- name: self_hosted_runner_infra
+  description: Underlying cloud compute hours for self-hosted agents (cloud-billed).
+  unit: vm-hour
+  aggregation: sum
+  dimensions:
+  - cloud_account
+  - cluster
 principles:
 - name: Visibility
-  description: Pull provider invoices or usage exports until a self-serve usage feed is documented.
+  description: Use the Buildkite organization Usage page; export Test Engine usage; combine with cloud cost-export for self-hosted agents.
 - name: Allocation
-  description: Tag invoice line items to consuming business units in your FinOps store.
+  description: Tag pipelines/clusters by team; map to FOCUS ResourceTag.
 - name: Optimization
-  description: Levers depend on the provider's billing model; review at renewal once reconciled.
+  description: Right-size hosted vs self-hosted balance; cache aggressively; prune flaky/slow tests; use cluster-level concurrency.
 - name: Accountability
-  description: Assign a contract owner to review billing against negotiated terms.
+  description: Assign cluster owners; alert on user/agent count drift from plan.
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

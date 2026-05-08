@@ -5,7 +5,7 @@ provider: Buildkite
 providerId: buildkite
 created: '2026-05-08'
 modified: '2026-05-08'
-reconciled: false
+reconciled: true
 tags:
 - DevOps
 - CI/CD
@@ -13,29 +13,102 @@ tags:
 - Agents
 - Self-Hosted
 - Plans
-description: Placeholder plans/pricing artifact for Buildkite. Replace with real published pricing once
-  the pipeline researches the provider's plans page.
-notes: Initial scaffold — plans/pricing have not yet been reconciled.
+- Pricing
+description: >-
+  Buildkite offers three primary tiers — Personal (Free), Pro and Enterprise —
+  plus a 30-day All Access trial. Pricing is per active user per month with
+  generous self-hosted-agent allowances; managed (hosted) agent compute and
+  Test Engine test executions are metered separately on top.
+notes: >-
+  Pricing as of 2026-05-08. The Pro tier includes 10 self-hosted agents and
+  $2.50/agent/mo above; Pro also includes 2,000 Linux vCPU minutes/mo of hosted
+  compute and 250 managed test executions before overages.
 sources:
-- https://buildkite.com/
+- https://buildkite.com/pricing
 plans:
-- id: buildkite-default
-  name: To Be Reconciled
-  type: enterprise
-  description: Initial scaffold; replace with provider plan tiers once pricing is reconciled.
+- id: buildkite-personal
+  name: Personal (Free)
+  type: free
+  description: Free forever; 1 user, 3 concurrent jobs, 90-day build retention, 500 hosted Linux minutes/mo, 50,000 test executions/mo.
   entries:
-  - label: API Access
-    name: api_access
+  - label: Per-user
+    name: per_user
     type: flat
-    metric: varies
-    limit: -1
-    timeFrame: usage
+    metric: user-month
+    limit: 1
+    timeFrame: month
     geo: global
     unit: 1
-    price: see https://buildkite.com/
+    price: 0
+    currency: USD
     userMultiplied: false
-  elements:
-  - name: Pending Reconciliation
+- id: buildkite-pro
+  name: Pro
+  type: subscription
+  description: $30/active user/mo; unlimited users; 1-year build retention; 10 self-hosted agents included then $2.50/agent/mo; 2,000 hosted Linux vCPU minutes and 250 managed test executions/mo included.
+  entries:
+  - label: Per active user
+    name: per_user
+    type: flat
+    metric: user-month
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: 30
+    currency: USD
+    userMultiplied: true
+  - label: Self-hosted agents (above 10)
+    name: self_hosted_agent
+    type: usage
+    metric: agent-month
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: 2.50
+    currency: USD
+    userMultiplied: false
+  - label: Hosted Linux vCPU minutes (included)
+    name: hosted_minutes_included
+    type: tier
+    metric: vCPU-minutes
+    limit: 2000
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: 0
+    userMultiplied: false
+- id: buildkite-enterprise
+  name: Enterprise
+  type: enterprise
+  description: 30-user minimum, custom pricing, advanced governance, volume discounts.
+  entries:
+  - label: Custom contract
+    name: enterprise_contract
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: annual
+    geo: global
+    unit: 1
+    price: contact sales
+    userMultiplied: false
+- id: buildkite-trial
+  name: All Access Trial
+  type: free
+  description: 30-day evaluation, no credit card.
+  entries:
+  - label: Trial
+    name: trial
+    type: flat
+    metric: trial-days
+    limit: 30
+    timeFrame: trial
+    geo: global
+    unit: 1
+    price: 0
+    userMultiplied: false
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

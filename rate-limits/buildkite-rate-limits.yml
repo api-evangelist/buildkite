@@ -15,21 +15,48 @@ tags:
 - Rate Limiting
 - Quotas
 - Throttling
-description: Placeholder rate-limit artifact for Buildkite. Replace with real limits once researched.
-notes: Initial scaffold — limits have not yet been reconciled.
+description: >-
+  Buildkite enforces per-token rate limits on the REST and GraphQL APIs and
+  returns 429 with the standard rate-limit response headers. Specific numeric
+  ceilings are not enumerated in public docs; Buildkite advises retrying after
+  a short delay and uses Retry-After.
+notes: >-
+  Numeric per-window quotas are not published; reconciled flagged false.
+  Concurrency at the build level is governed by plan (Personal: 3 concurrent
+  jobs, Pro/Enterprise: unlimited subject to agent / hosted-minute caps).
 sources:
-- https://buildkite.com/
+- https://buildkite.com/docs/apis/rest-api
+- https://buildkite.com/pricing
 responseCodes:
   throttled: 429
+headers:
+- name: RateLimit-Limit
+  description: Per-window quota (when present).
+- name: RateLimit-Remaining
+  description: Calls remaining in window.
+- name: Retry-After
+  description: Seconds to wait before retrying after a 429.
 limits:
-- name: Default
-  scope: account
-  metric: varies
-  limit: see provider documentation
-  notes: Pending reconciliation.
+- name: REST API per token
+  scope: api_token
+  metric: requests
+  limit: see Buildkite docs
+  notes: Public numeric ceiling not documented; 429 with Retry-After on throttle.
+- name: GraphQL API per token
+  scope: api_token
+  metric: requests
+  limit: see Buildkite docs
+  notes: Same 429 contract; complex queries are bounded by depth/cost limits.
+- name: Concurrent jobs (Personal)
+  scope: organization
+  metric: concurrent_jobs
+  limit: 3
+  notes: Free plan; Pro/Enterprise are unlimited subject to agents/minutes.
 policies:
 - name: Backoff Strategy
-  description: Clients should implement exponential backoff with jitter and honor any Retry-After header.
+  description: Honor Retry-After on 429; use exponential backoff with jitter.
+- name: Token Scoping
+  description: Limit access tokens to required scopes; rotate regularly.
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
