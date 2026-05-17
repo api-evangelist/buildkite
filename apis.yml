@@ -1,7 +1,7 @@
 aid: buildkite
 url: https://raw.githubusercontent.com/api-evangelist/buildkite/refs/heads/main/apis.yml
 name: Buildkite
-x-type: company
+kind: company
 description: >-
   Buildkite is a CI/CD platform with self-hosted agents and a hosted control
   plane. The platform exposes a REST API, a GraphQL API and an Agent API used
