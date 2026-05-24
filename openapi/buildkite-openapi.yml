@@ -1,0 +1,1769 @@
+openapi: 3.1.0
+info:
+  title: Buildkite REST API
+  description: |
+    Best-effort OpenAPI 3.1 description of the Buildkite REST API for organizations, pipelines,
+    builds, jobs, agents, artifacts, annotations, clusters, queues, agent tokens,
+    pipeline templates, rules, teams, and access tokens.
+
+    Authentication is via a Bearer token issued from the Buildkite UI.
+  version: "2.0"
+  contact:
+    name: Buildkite
+    url: https://buildkite.com/docs/apis/rest-api
+servers:
+  - url: https://api.buildkite.com/v2
+    description: Buildkite REST API v2
+security:
+  - bearerAuth: []
+tags:
+  - name: Organizations
+  - name: Pipelines
+  - name: Builds
+  - name: Jobs
+  - name: Annotations
+  - name: Artifacts
+  - name: Agents
+  - name: Teams
+  - name: Clusters
+  - name: Queues
+  - name: AgentTokens
+  - name: PipelineTemplates
+  - name: Rules
+  - name: User
+  - name: AccessToken
+  - name: Meta
+  - name: Emojis
+paths:
+  /organizations:
+    get:
+      tags: [Organizations]
+      summary: List organizations
+      operationId: listOrganizations
+      responses:
+        "200":
+          description: Organizations
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Organization"
+  /organizations/{org}:
+    parameters:
+      - $ref: "#/components/parameters/Org"
+    get:
+      tags: [Organizations]
+      summary: Get an organization
+      operationId: getOrganization
+      responses:
+        "200":
+          description: Organization
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Organization"
+  /organizations/{org}/members:
+    parameters:
+      - $ref: "#/components/parameters/Org"
+    get:
+      tags: [Organizations]
+      summary: List members
+      operationId: listOrgMembers
+      responses:
+        "200":
+          description: Members
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Member"
+  /organizations/{org}/members/{userUuid}:
+    parameters:
+      - $ref: "#/components/parameters/Org"
+      - name: userUuid
+        in: path
+        required: true
+        schema:
+          type: string
+    get:
+      tags: [Organizations]
+      summary: Get a member
+      operationId: getOrgMember
+      responses:
+        "200":
+          description: Member
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Member"
+  /organizations/{org}/pipelines:
+    parameters:
+      - $ref: "#/components/parameters/Org"
+    get:
+      tags: [Pipelines]
+      summary: List pipelines
+      operationId: listPipelines
+      responses:
+        "200":
+          description: Pipelines
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Pipeline"
+    post:
+      tags: [Pipelines]
+      summary: Create pipeline
+      operationId: createPipeline
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PipelineCreate"
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Pipeline"
+  /organizations/{org}/pipelines/{slug}:
+    parameters:
+      - $ref: "#/components/parameters/Org"
+      - $ref: "#/components/parameters/PipelineSlug"
+    get:
+      tags: [Pipelines]
+      summary: Get pipeline
+      operationId: getPipeline
+      responses:
+        "200":
+          description: Pipeline
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Pipeline"
+    patch:
+      tags: [Pipelines]
+      summary: Update pipeline
+      operationId: updatePipeline
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PipelineCreate"
+      responses:
+        "200":
+          description: Updated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Pipeline"
+    delete:
+      tags: [Pipelines]
+      summary: Delete pipeline
+      operationId: deletePipeline
+      responses:
+        "204":
+          description: Deleted
+  /organizations/{org}/pipelines/{slug}/archive:
+    parameters:
+      - $ref: "#/components/parameters/Org"
+      - $ref: "#/components/parameters/PipelineSlug"
+    post:
+      tags: [Pipelines]
+      summary: Archive pipeline
+      operationId: archivePipeline
+      responses:
+        "200":
+          description: Archived
+  /organizations/{org}/pipelines/{slug}/unarchive:
+    parameters:
+      - $ref: "#/components/parameters/Org"
+      - $ref: "#/components/parameters/PipelineSlug"
+    post:
+      tags: [Pipelines]
+      summary: Unarchive pipeline
+      operationId: unarchivePipeline
+      responses:
+        "200":
+          description: Unarchived
+  /organizations/{org}/pipelines/{slug}/webhook:
+    parameters:
+      - $ref: "#/components/parameters/Org"
+      - $ref: "#/components/parameters/PipelineSlug"
+    post:
+      tags: [Pipelines]
+      summary: Rotate webhook URL
+      operationId: rotatePipelineWebhook
+      responses:
+        "200":
+          description: Webhook
+  /builds:
+    get:
+      tags: [Builds]
+      summary: List all builds
+      operationId: listAllBuilds
+      responses:
+        "200":
+          description: Builds
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Build"
+  /organizations/{org}/builds:
+    parameters:
+      - $ref: "#/components/parameters/Org"
+    get:
+      tags: [Builds]
+      summary: List org builds
+      operationId: listOrgBuilds
+      responses:
+        "200":
+          description: Builds
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Build"
+  /organizations/{org}/pipelines/{slug}/builds:
+    parameters:
+      - $ref: "#/components/parameters/Org"
+      - $ref: "#/components/parameters/PipelineSlug"
+    get:
+      tags: [Builds]
+      summary: List pipeline builds
+      operationId: listPipelineBuilds
+      responses:
+        "200":
+          description: Builds
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Build"
+    post:
+      tags: [Builds]
+      summary: Create build
+      operationId: createBuild
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/BuildCreate"
+      responses:
+        "201":
+          description: Build
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Build"
+  /organizations/{org}/pipelines/{slug}/builds/{number}:
+    parameters:
+      - $ref: "#/components/parameters/Org"
+      - $ref: "#/components/parameters/PipelineSlug"
+      - $ref: "#/components/parameters/BuildNumber"
+    get:
+      tags: [Builds]
+      summary: Get build
+      operationId: getBuild
+      responses:
+        "200":
+          description: Build
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Build"
+  /organizations/{org}/pipelines/{slug}/builds/{number}/cancel:
+    parameters:
+      - $ref: "#/components/parameters/Org"
+      - $ref: "#/components/parameters/PipelineSlug"
+      - $ref: "#/components/parameters/BuildNumber"
+    put:
+      tags: [Builds]
+      summary: Cancel build
+      operationId: cancelBuild
+      responses:
+        "200":
+          description: Build
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Build"
+  /organizations/{org}/pipelines/{slug}/builds/{number}/rebuild:
+    parameters:
+      - $ref: "#/components/parameters/Org"
+      - $ref: "#/components/parameters/PipelineSlug"
+      - $ref: "#/components/parameters/BuildNumber"
+    put:
+      tags: [Builds]
+      summary: Rebuild
+      operationId: rebuildBuild
+      responses:
+        "200":
+          description: New build
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Build"
+  /organizations/{org}/pipelines/{slug}/builds/{number}/jobs/{jobId}/retry:
+    parameters:
+      - $ref: "#/components/parameters/Org"
+      - $ref: "#/components/parameters/PipelineSlug"
+      - $ref: "#/components/parameters/BuildNumber"
+      - $ref: "#/components/parameters/JobId"
+    put:
+      tags: [Jobs]
+      summary: Retry a job
+      operationId: retryJob
+      responses:
+        "200":
+          description: Job
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Job"
+  /organizations/{org}/pipelines/{slug}/builds/{number}/jobs/{jobId}/reprioritize:
+    parameters:
+      - $ref: "#/components/parameters/Org"
+      - $ref: "#/components/parameters/PipelineSlug"
+      - $ref: "#/components/parameters/BuildNumber"
+      - $ref: "#/components/parameters/JobId"
+    put:
+      tags: [Jobs]
+      summary: Reprioritize a job
+      operationId: reprioritizeJob
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                priority:
+                  type: integer
+      responses:
+        "200":
+          description: Job
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Job"
+  /organizations/{org}/pipelines/{slug}/builds/{number}/jobs/{jobId}/unblock:
+    parameters:
+      - $ref: "#/components/parameters/Org"
+      - $ref: "#/components/parameters/PipelineSlug"
+      - $ref: "#/components/parameters/BuildNumber"
+      - $ref: "#/components/parameters/JobId"
+    put:
+      tags: [Jobs]
+      summary: Unblock a job
+      operationId: unblockJob
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                unblocker:
+                  type: string
+                fields:
+                  type: object
+                  additionalProperties:
+                    type: string
+      responses:
+        "200":
+          description: Job
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Job"
+  /organizations/{org}/pipelines/{slug}/builds/{number}/jobs/{jobId}/log:
+    parameters:
+      - $ref: "#/components/parameters/Org"
+      - $ref: "#/components/parameters/PipelineSlug"
+      - $ref: "#/components/parameters/BuildNumber"
+      - $ref: "#/components/parameters/JobId"
+    get:
+      tags: [Jobs]
+      summary: Get job log
+      operationId: getJobLog
+      responses:
+        "200":
+          description: Log
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  url:
+                    type: string
+                  content:
+                    type: string
+                  size:
+                    type: integer
+    delete:
+      tags: [Jobs]
+      summary: Delete job log
+      operationId: deleteJobLog
+      responses:
+        "204":
+          description: Deleted
+  /organizations/{org}/pipelines/{slug}/builds/{number}/jobs/{jobId}/env:
+    parameters:
+      - $ref: "#/components/parameters/Org"
+      - $ref: "#/components/parameters/PipelineSlug"
+      - $ref: "#/components/parameters/BuildNumber"
+      - $ref: "#/components/parameters/JobId"
+    get:
+      tags: [Jobs]
+      summary: Get job environment variables
+      operationId: getJobEnv
+      responses:
+        "200":
+          description: Environment
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  env:
+                    type: object
+                    additionalProperties:
+                      type: string
+  /organizations/{org}/pipelines/{slug}/builds/{number}/annotations:
+    parameters:
+      - $ref: "#/components/parameters/Org"
+      - $ref: "#/components/parameters/PipelineSlug"
+      - $ref: "#/components/parameters/BuildNumber"
+    get:
+      tags: [Annotations]
+      summary: List annotations
+      operationId: listAnnotations
+      responses:
+        "200":
+          description: Annotations
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Annotation"
+    post:
+      tags: [Annotations]
+      summary: Create annotation
+      operationId: createAnnotation
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [body, style, context]
+              properties:
+                body:
+                  type: string
+                style:
+                  type: string
+                  enum: [info, warning, error, success]
+                context:
+                  type: string
+      responses:
+        "201":
+          description: Annotation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Annotation"
+  /organizations/{org}/pipelines/{slug}/builds/{number}/annotations/{uuid}:
+    parameters:
+      - $ref: "#/components/parameters/Org"
+      - $ref: "#/components/parameters/PipelineSlug"
+      - $ref: "#/components/parameters/BuildNumber"
+      - name: uuid
+        in: path
+        required: true
+        schema:
+          type: string
+    delete:
+      tags: [Annotations]
+      summary: Delete annotation
+      operationId: deleteAnnotation
+      responses:
+        "204":
+          description: Deleted
+  /organizations/{org}/pipelines/{slug}/builds/{number}/artifacts:
+    parameters:
+      - $ref: "#/components/parameters/Org"
+      - $ref: "#/components/parameters/PipelineSlug"
+      - $ref: "#/components/parameters/BuildNumber"
+    get:
+      tags: [Artifacts]
+      summary: List build artifacts
+      operationId: listBuildArtifacts
+      responses:
+        "200":
+          description: Artifacts
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Artifact"
+  /organizations/{org}/pipelines/{slug}/builds/{number}/jobs/{jobId}/artifacts:
+    parameters:
+      - $ref: "#/components/parameters/Org"
+      - $ref: "#/components/parameters/PipelineSlug"
+      - $ref: "#/components/parameters/BuildNumber"
+      - $ref: "#/components/parameters/JobId"
+    get:
+      tags: [Artifacts]
+      summary: List job artifacts
+      operationId: listJobArtifacts
+      responses:
+        "200":
+          description: Artifacts
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Artifact"
+  /organizations/{org}/pipelines/{slug}/builds/{number}/jobs/{jobId}/artifacts/{id}:
+    parameters:
+      - $ref: "#/components/parameters/Org"
+      - $ref: "#/components/parameters/PipelineSlug"
+      - $ref: "#/components/parameters/BuildNumber"
+      - $ref: "#/components/parameters/JobId"
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+    get:
+      tags: [Artifacts]
+      summary: Get artifact
+      operationId: getArtifact
+      responses:
+        "200":
+          description: Artifact
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Artifact"
+    delete:
+      tags: [Artifacts]
+      summary: Delete artifact
+      operationId: deleteArtifact
+      responses:
+        "204":
+          description: Deleted
+  /organizations/{org}/pipelines/{slug}/builds/{number}/jobs/{jobId}/artifacts/{id}/download:
+    parameters:
+      - $ref: "#/components/parameters/Org"
+      - $ref: "#/components/parameters/PipelineSlug"
+      - $ref: "#/components/parameters/BuildNumber"
+      - $ref: "#/components/parameters/JobId"
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+    get:
+      tags: [Artifacts]
+      summary: Download artifact
+      operationId: downloadArtifact
+      responses:
+        "302":
+          description: Redirect to artifact download
+  /organizations/{org}/agents:
+    parameters:
+      - $ref: "#/components/parameters/Org"
+    get:
+      tags: [Agents]
+      summary: List agents
+      operationId: listAgents
+      responses:
+        "200":
+          description: Agents
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Agent"
+  /organizations/{org}/agents/{id}:
+    parameters:
+      - $ref: "#/components/parameters/Org"
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+    get:
+      tags: [Agents]
+      summary: Get agent
+      operationId: getAgent
+      responses:
+        "200":
+          description: Agent
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Agent"
+  /organizations/{org}/agents/{id}/stop:
+    parameters:
+      - $ref: "#/components/parameters/Org"
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+    put:
+      tags: [Agents]
+      summary: Stop agent
+      operationId: stopAgent
+      responses:
+        "204":
+          description: Stopped
+  /organizations/{org}/agents/{id}/pause:
+    parameters:
+      - $ref: "#/components/parameters/Org"
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+    put:
+      tags: [Agents]
+      summary: Pause agent
+      operationId: pauseAgent
+      responses:
+        "204":
+          description: Paused
+  /organizations/{org}/agents/{id}/resume:
+    parameters:
+      - $ref: "#/components/parameters/Org"
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+    put:
+      tags: [Agents]
+      summary: Resume agent
+      operationId: resumeAgent
+      responses:
+        "204":
+          description: Resumed
+  /organizations/{org}/teams:
+    parameters:
+      - $ref: "#/components/parameters/Org"
+    get:
+      tags: [Teams]
+      summary: List teams
+      operationId: listTeams
+      responses:
+        "200":
+          description: Teams
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Team"
+    post:
+      tags: [Teams]
+      summary: Create team
+      operationId: createTeam
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [name]
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+                privacy:
+                  type: string
+                  enum: [visible, secret]
+                is_default_team:
+                  type: boolean
+                default_member_role:
+                  type: string
+                  enum: [maintainer, member]
+                members_can_create_pipelines:
+                  type: boolean
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Team"
+  /organizations/{org}/teams/{teamUuid}:
+    parameters:
+      - $ref: "#/components/parameters/Org"
+      - name: teamUuid
+        in: path
+        required: true
+        schema:
+          type: string
+    get:
+      tags: [Teams]
+      summary: Get team
+      operationId: getTeam
+      responses:
+        "200":
+          description: Team
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Team"
+    patch:
+      tags: [Teams]
+      summary: Update team
+      operationId: updateTeam
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+      responses:
+        "200":
+          description: Team
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Team"
+    delete:
+      tags: [Teams]
+      summary: Delete team
+      operationId: deleteTeam
+      responses:
+        "204":
+          description: Deleted
+  /organizations/{org}/clusters:
+    parameters:
+      - $ref: "#/components/parameters/Org"
+    get:
+      tags: [Clusters]
+      summary: List clusters
+      operationId: listClusters
+      responses:
+        "200":
+          description: Clusters
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Cluster"
+    post:
+      tags: [Clusters]
+      summary: Create cluster
+      operationId: createCluster
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [name]
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+                emoji:
+                  type: string
+                color:
+                  type: string
+      responses:
+        "201":
+          description: Cluster
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Cluster"
+  /organizations/{org}/clusters/{id}:
+    parameters:
+      - $ref: "#/components/parameters/Org"
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+    get:
+      tags: [Clusters]
+      summary: Get cluster
+      operationId: getCluster
+      responses:
+        "200":
+          description: Cluster
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Cluster"
+    put:
+      tags: [Clusters]
+      summary: Update cluster
+      operationId: updateCluster
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+      responses:
+        "200":
+          description: Cluster
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Cluster"
+    delete:
+      tags: [Clusters]
+      summary: Delete cluster
+      operationId: deleteCluster
+      responses:
+        "204":
+          description: Deleted
+  /organizations/{org}/clusters/{clusterId}/queues:
+    parameters:
+      - $ref: "#/components/parameters/Org"
+      - $ref: "#/components/parameters/ClusterId"
+    get:
+      tags: [Queues]
+      summary: List queues
+      operationId: listQueues
+      responses:
+        "200":
+          description: Queues
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Queue"
+    post:
+      tags: [Queues]
+      summary: Create queue
+      operationId: createQueue
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [key]
+              properties:
+                key:
+                  type: string
+                description:
+                  type: string
+      responses:
+        "201":
+          description: Queue
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Queue"
+  /organizations/{org}/clusters/{clusterId}/queues/{id}:
+    parameters:
+      - $ref: "#/components/parameters/Org"
+      - $ref: "#/components/parameters/ClusterId"
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+    get:
+      tags: [Queues]
+      summary: Get queue
+      operationId: getQueue
+      responses:
+        "200":
+          description: Queue
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Queue"
+    put:
+      tags: [Queues]
+      summary: Update queue
+      operationId: updateQueue
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                description:
+                  type: string
+      responses:
+        "200":
+          description: Queue
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Queue"
+    delete:
+      tags: [Queues]
+      summary: Delete queue
+      operationId: deleteQueue
+      responses:
+        "204":
+          description: Deleted
+  /organizations/{org}/clusters/{clusterId}/queues/{id}/pause_dispatch:
+    parameters:
+      - $ref: "#/components/parameters/Org"
+      - $ref: "#/components/parameters/ClusterId"
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+    post:
+      tags: [Queues]
+      summary: Pause dispatch
+      operationId: pauseQueueDispatch
+      responses:
+        "200":
+          description: Paused
+  /organizations/{org}/clusters/{clusterId}/queues/{id}/resume_dispatch:
+    parameters:
+      - $ref: "#/components/parameters/Org"
+      - $ref: "#/components/parameters/ClusterId"
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+    post:
+      tags: [Queues]
+      summary: Resume dispatch
+      operationId: resumeQueueDispatch
+      responses:
+        "200":
+          description: Resumed
+  /organizations/{org}/clusters/{clusterId}/tokens:
+    parameters:
+      - $ref: "#/components/parameters/Org"
+      - $ref: "#/components/parameters/ClusterId"
+    get:
+      tags: [AgentTokens]
+      summary: List agent tokens
+      operationId: listAgentTokens
+      responses:
+        "200":
+          description: Tokens
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/AgentToken"
+    post:
+      tags: [AgentTokens]
+      summary: Create agent token
+      operationId: createAgentToken
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                description:
+                  type: string
+                allowed_ip_addresses:
+                  type: string
+      responses:
+        "201":
+          description: Token
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AgentToken"
+  /organizations/{org}/clusters/{clusterId}/tokens/{id}:
+    parameters:
+      - $ref: "#/components/parameters/Org"
+      - $ref: "#/components/parameters/ClusterId"
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+    get:
+      tags: [AgentTokens]
+      summary: Get agent token
+      operationId: getAgentToken
+      responses:
+        "200":
+          description: Token
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AgentToken"
+    put:
+      tags: [AgentTokens]
+      summary: Update agent token
+      operationId: updateAgentToken
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                description:
+                  type: string
+      responses:
+        "200":
+          description: Token
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AgentToken"
+    delete:
+      tags: [AgentTokens]
+      summary: Revoke agent token
+      operationId: revokeAgentToken
+      responses:
+        "204":
+          description: Revoked
+  /organizations/{org}/pipeline-templates:
+    parameters:
+      - $ref: "#/components/parameters/Org"
+    get:
+      tags: [PipelineTemplates]
+      summary: List pipeline templates
+      operationId: listPipelineTemplates
+      responses:
+        "200":
+          description: Templates
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/PipelineTemplate"
+    post:
+      tags: [PipelineTemplates]
+      summary: Create pipeline template
+      operationId: createPipelineTemplate
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [name, configuration]
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+                configuration:
+                  type: string
+                available:
+                  type: boolean
+      responses:
+        "201":
+          description: Template
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PipelineTemplate"
+  /organizations/{org}/pipeline-templates/{uuid}:
+    parameters:
+      - $ref: "#/components/parameters/Org"
+      - name: uuid
+        in: path
+        required: true
+        schema:
+          type: string
+    get:
+      tags: [PipelineTemplates]
+      summary: Get pipeline template
+      operationId: getPipelineTemplate
+      responses:
+        "200":
+          description: Template
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PipelineTemplate"
+    patch:
+      tags: [PipelineTemplates]
+      summary: Update pipeline template
+      operationId: updatePipelineTemplate
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                configuration:
+                  type: string
+      responses:
+        "200":
+          description: Template
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PipelineTemplate"
+    delete:
+      tags: [PipelineTemplates]
+      summary: Delete pipeline template
+      operationId: deletePipelineTemplate
+      responses:
+        "204":
+          description: Deleted
+  /organizations/{org}/rules:
+    parameters:
+      - $ref: "#/components/parameters/Org"
+    get:
+      tags: [Rules]
+      summary: List rules
+      operationId: listRules
+      responses:
+        "200":
+          description: Rules
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Rule"
+    post:
+      tags: [Rules]
+      summary: Create rule
+      operationId: createRule
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [type, value]
+              properties:
+                type:
+                  type: string
+                value:
+                  type: string
+      responses:
+        "201":
+          description: Rule
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Rule"
+  /organizations/{org}/rules/{uuid}:
+    parameters:
+      - $ref: "#/components/parameters/Org"
+      - name: uuid
+        in: path
+        required: true
+        schema:
+          type: string
+    get:
+      tags: [Rules]
+      summary: Get rule
+      operationId: getRule
+      responses:
+        "200":
+          description: Rule
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Rule"
+    delete:
+      tags: [Rules]
+      summary: Delete rule
+      operationId: deleteRule
+      responses:
+        "204":
+          description: Deleted
+  /organizations/{org}/emojis:
+    parameters:
+      - $ref: "#/components/parameters/Org"
+    get:
+      tags: [Emojis]
+      summary: List custom emojis
+      operationId: listEmojis
+      responses:
+        "200":
+          description: Emojis
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    url:
+                      type: string
+  /user:
+    get:
+      tags: [User]
+      summary: Get current user
+      operationId: getUser
+      responses:
+        "200":
+          description: User
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+  /access-token:
+    get:
+      tags: [AccessToken]
+      summary: Get current access token
+      operationId: getAccessToken
+      responses:
+        "200":
+          description: Token info
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AccessToken"
+    delete:
+      tags: [AccessToken]
+      summary: Revoke current access token
+      operationId: revokeAccessToken
+      responses:
+        "204":
+          description: Revoked
+  /meta:
+    get:
+      tags: [Meta]
+      summary: Get Buildkite meta information
+      operationId: getMeta
+      responses:
+        "200":
+          description: Meta information
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  webhook_ips:
+                    type: array
+                    items:
+                      type: string
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: Bearer token issued from your Buildkite Personal Access Tokens page.
+  parameters:
+    Org:
+      name: org
+      in: path
+      required: true
+      description: Organization slug.
+      schema:
+        type: string
+    PipelineSlug:
+      name: slug
+      in: path
+      required: true
+      description: Pipeline slug.
+      schema:
+        type: string
+    BuildNumber:
+      name: number
+      in: path
+      required: true
+      description: Build number.
+      schema:
+        type: integer
+    JobId:
+      name: jobId
+      in: path
+      required: true
+      description: Job ID.
+      schema:
+        type: string
+    ClusterId:
+      name: clusterId
+      in: path
+      required: true
+      description: Cluster ID.
+      schema:
+        type: string
+  schemas:
+    Organization:
+      type: object
+      properties:
+        id:
+          type: string
+        slug:
+          type: string
+        name:
+          type: string
+        url:
+          type: string
+        web_url:
+          type: string
+        pipelines_url:
+          type: string
+        agents_url:
+          type: string
+        emojis_url:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+    Member:
+      type: object
+      properties:
+        id:
+          type: string
+        role:
+          type: string
+        sso_mode_enabled:
+          type: boolean
+        created_at:
+          type: string
+          format: date-time
+        user:
+          $ref: "#/components/schemas/User"
+    Pipeline:
+      type: object
+      properties:
+        id:
+          type: string
+        url:
+          type: string
+        web_url:
+          type: string
+        name:
+          type: string
+        slug:
+          type: string
+        description:
+          type: string
+        repository:
+          type: string
+        cluster_id:
+          type: string
+        branch_configuration:
+          type: string
+        default_branch:
+          type: string
+        skip_queued_branch_builds:
+          type: boolean
+        provider:
+          type: object
+        builds_url:
+          type: string
+        badge_url:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        archived_at:
+          type: [string, "null"]
+          format: date-time
+    PipelineCreate:
+      type: object
+      required: [name, repository]
+      properties:
+        name:
+          type: string
+        repository:
+          type: string
+        cluster_id:
+          type: string
+        configuration:
+          type: string
+        default_branch:
+          type: string
+        description:
+          type: string
+    Build:
+      type: object
+      properties:
+        id:
+          type: string
+        url:
+          type: string
+        web_url:
+          type: string
+        number:
+          type: integer
+        state:
+          type: string
+        message:
+          type: string
+        commit:
+          type: string
+        branch:
+          type: string
+        env:
+          type: object
+        author:
+          type: object
+        creator:
+          $ref: "#/components/schemas/User"
+        source:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        scheduled_at:
+          type: string
+          format: date-time
+        started_at:
+          type: [string, "null"]
+          format: date-time
+        finished_at:
+          type: [string, "null"]
+          format: date-time
+        pipeline:
+          $ref: "#/components/schemas/Pipeline"
+        jobs:
+          type: array
+          items:
+            $ref: "#/components/schemas/Job"
+    BuildCreate:
+      type: object
+      required: [commit, branch]
+      properties:
+        commit:
+          type: string
+        branch:
+          type: string
+        message:
+          type: string
+        author:
+          type: object
+          properties:
+            name:
+              type: string
+            email:
+              type: string
+        env:
+          type: object
+          additionalProperties:
+            type: string
+        meta_data:
+          type: object
+        clean_checkout:
+          type: boolean
+        pull_request_id:
+          type: string
+        pull_request_base_branch:
+          type: string
+        pull_request_repository:
+          type: string
+    Job:
+      type: object
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+        name:
+          type: string
+        step_key:
+          type: string
+        priority:
+          type: object
+        agent_query_rules:
+          type: array
+          items:
+            type: string
+        state:
+          type: string
+        web_url:
+          type: string
+        log_url:
+          type: string
+        raw_log_url:
+          type: string
+        command:
+          type: string
+        soft_failed:
+          type: boolean
+        exit_status:
+          type: [integer, "null"]
+        artifact_paths:
+          type: string
+        agent:
+          $ref: "#/components/schemas/Agent"
+        created_at:
+          type: string
+          format: date-time
+        scheduled_at:
+          type: [string, "null"]
+          format: date-time
+        runnable_at:
+          type: [string, "null"]
+          format: date-time
+        started_at:
+          type: [string, "null"]
+          format: date-time
+        finished_at:
+          type: [string, "null"]
+          format: date-time
+    Annotation:
+      type: object
+      properties:
+        id:
+          type: string
+        context:
+          type: string
+        style:
+          type: string
+        body_html:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+    Artifact:
+      type: object
+      properties:
+        id:
+          type: string
+        job_id:
+          type: string
+        url:
+          type: string
+        download_url:
+          type: string
+        state:
+          type: string
+        path:
+          type: string
+        dirname:
+          type: string
+        filename:
+          type: string
+        mime_type:
+          type: string
+        file_size:
+          type: integer
+        sha1sum:
+          type: string
+        sha256sum:
+          type: string
+    Agent:
+      type: object
+      properties:
+        id:
+          type: string
+        url:
+          type: string
+        web_url:
+          type: string
+        name:
+          type: string
+        connection_state:
+          type: string
+        ip_address:
+          type: string
+        hostname:
+          type: string
+        user_agent:
+          type: string
+        version:
+          type: string
+        creator:
+          $ref: "#/components/schemas/User"
+        created_at:
+          type: string
+          format: date-time
+        meta_data:
+          type: array
+          items:
+            type: string
+        last_job_finished_at:
+          type: [string, "null"]
+          format: date-time
+        priority:
+          type: integer
+    Team:
+      type: object
+      properties:
+        id:
+          type: string
+        uuid:
+          type: string
+        slug:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        privacy:
+          type: string
+        default_team:
+          type: boolean
+        created_at:
+          type: string
+          format: date-time
+    Cluster:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        emoji:
+          type: string
+        color:
+          type: string
+        url:
+          type: string
+        web_url:
+          type: string
+        queues_url:
+          type: string
+        default_queue_url:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+    Queue:
+      type: object
+      properties:
+        id:
+          type: string
+        key:
+          type: string
+        description:
+          type: string
+        dispatch_paused:
+          type: boolean
+        url:
+          type: string
+        web_url:
+          type: string
+        cluster_url:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+    AgentToken:
+      type: object
+      properties:
+        id:
+          type: string
+        description:
+          type: string
+        token:
+          type: string
+        allowed_ip_addresses:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+    PipelineTemplate:
+      type: object
+      properties:
+        uuid:
+          type: string
+        graphql_id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        configuration:
+          type: string
+        available:
+          type: boolean
+        url:
+          type: string
+        web_url:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+    Rule:
+      type: object
+      properties:
+        uuid:
+          type: string
+        type:
+          type: string
+        value:
+          type: string
+        action:
+          type: string
+        effect:
+          type: string
+        url:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+        graphql_id:
+          type: string
+        name:
+          type: string
+        email:
+          type: string
+        avatar_url:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+    AccessToken:
+      type: object
+      properties:
+        uuid:
+          type: string
+        scopes:
+          type: array
+          items:
+            type: string
