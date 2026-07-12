@@ -1,0 +1,13 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/buildkite-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  description: Bearer token issued from your Buildkite Personal Access Tokens page.
+  sources:
+  - openapi/buildkite-openapi.yml

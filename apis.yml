@@ -77,6 +77,12 @@ apis:
   - type: Documentation
     url: https://buildkite.com/docs/apis/agent-api
 common:
+- type: TrustCenter
+  url: security/buildkite-trust-center.yml
+- type: DomainSecurity
+  url: security/buildkite-domain-security.yml
+- type: Authentication
+  url: authentication/buildkite-authentication.yml
 - type: LinkedIn
   url: https://www.linkedin.com/company/buildkite
 - type: Website
@@ -95,6 +101,8 @@ common:
   url: rate-limits/buildkite-rate-limits.yml
 - type: FinOps
   url: finops/buildkite-finops.yml
+- type: Blog
+  url: https://buildkite.com/blog.atom
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
