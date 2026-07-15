@@ -77,6 +77,8 @@ apis:
   - type: Documentation
     url: https://buildkite.com/docs/apis/agent-api
 common:
+- type: AgenticAccess
+  url: agentic-access/buildkite-agentic-access.yml
 - type: TrustCenter
   url: security/buildkite-trust-center.yml
 - type: DomainSecurity
