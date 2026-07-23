@@ -1,0 +1,159 @@
+openapi: 3.1.0
+info:
+  title: Buildkite REST AccessToken Organizations API
+  description: 'Best-effort OpenAPI 3.1 description of the Buildkite REST API for organizations, pipelines,
+
+    builds, jobs, agents, artifacts, annotations, clusters, queues, agent tokens,
+
+    pipeline templates, rules, teams, and access tokens.
+
+
+    Authentication is via a Bearer token issued from the Buildkite UI.
+
+    '
+  version: '2.0'
+  contact:
+    name: Buildkite
+    url: https://buildkite.com/docs/apis/rest-api
+servers:
+- url: https://api.buildkite.com/v2
+  description: Buildkite REST API v2
+security:
+- bearerAuth: []
+tags:
+- name: Organizations
+paths:
+  /organizations:
+    get:
+      tags:
+      - Organizations
+      summary: List organizations
+      operationId: listOrganizations
+      responses:
+        '200':
+          description: Organizations
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Organization'
+  /organizations/{org}:
+    parameters:
+    - $ref: '#/components/parameters/Org'
+    get:
+      tags:
+      - Organizations
+      summary: Get an organization
+      operationId: getOrganization
+      responses:
+        '200':
+          description: Organization
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Organization'
+  /organizations/{org}/members:
+    parameters:
+    - $ref: '#/components/parameters/Org'
+    get:
+      tags:
+      - Organizations
+      summary: List members
+      operationId: listOrgMembers
+      responses:
+        '200':
+          description: Members
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Member'
+  /organizations/{org}/members/{userUuid}:
+    parameters:
+    - $ref: '#/components/parameters/Org'
+    - name: userUuid
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      tags:
+      - Organizations
+      summary: Get a member
+      operationId: getOrgMember
+      responses:
+        '200':
+          description: Member
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Member'
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+        graphql_id:
+          type: string
+        name:
+          type: string
+        email:
+          type: string
+        avatar_url:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+    Organization:
+      type: object
+      properties:
+        id:
+          type: string
+        slug:
+          type: string
+        name:
+          type: string
+        url:
+          type: string
+        web_url:
+          type: string
+        pipelines_url:
+          type: string
+        agents_url:
+          type: string
+        emojis_url:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+    Member:
+      type: object
+      properties:
+        id:
+          type: string
+        role:
+          type: string
+        sso_mode_enabled:
+          type: boolean
+        created_at:
+          type: string
+          format: date-time
+        user:
+          $ref: '#/components/schemas/User'
+  parameters:
+    Org:
+      name: org
+      in: path
+      required: true
+      description: Organization slug.
+      schema:
+        type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: Bearer token issued from your Buildkite Personal Access Tokens page.

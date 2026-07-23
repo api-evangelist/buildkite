@@ -1,0 +1,178 @@
+openapi: 3.1.0
+info:
+  title: Buildkite REST AccessToken Agents API
+  description: 'Best-effort OpenAPI 3.1 description of the Buildkite REST API for organizations, pipelines,
+
+    builds, jobs, agents, artifacts, annotations, clusters, queues, agent tokens,
+
+    pipeline templates, rules, teams, and access tokens.
+
+
+    Authentication is via a Bearer token issued from the Buildkite UI.
+
+    '
+  version: '2.0'
+  contact:
+    name: Buildkite
+    url: https://buildkite.com/docs/apis/rest-api
+servers:
+- url: https://api.buildkite.com/v2
+  description: Buildkite REST API v2
+security:
+- bearerAuth: []
+tags:
+- name: Agents
+paths:
+  /organizations/{org}/agents:
+    parameters:
+    - $ref: '#/components/parameters/Org'
+    get:
+      tags:
+      - Agents
+      summary: List agents
+      operationId: listAgents
+      responses:
+        '200':
+          description: Agents
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Agent'
+  /organizations/{org}/agents/{id}:
+    parameters:
+    - $ref: '#/components/parameters/Org'
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      tags:
+      - Agents
+      summary: Get agent
+      operationId: getAgent
+      responses:
+        '200':
+          description: Agent
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Agent'
+  /organizations/{org}/agents/{id}/stop:
+    parameters:
+    - $ref: '#/components/parameters/Org'
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+    put:
+      tags:
+      - Agents
+      summary: Stop agent
+      operationId: stopAgent
+      responses:
+        '204':
+          description: Stopped
+  /organizations/{org}/agents/{id}/pause:
+    parameters:
+    - $ref: '#/components/parameters/Org'
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+    put:
+      tags:
+      - Agents
+      summary: Pause agent
+      operationId: pauseAgent
+      responses:
+        '204':
+          description: Paused
+  /organizations/{org}/agents/{id}/resume:
+    parameters:
+    - $ref: '#/components/parameters/Org'
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+    put:
+      tags:
+      - Agents
+      summary: Resume agent
+      operationId: resumeAgent
+      responses:
+        '204':
+          description: Resumed
+components:
+  schemas:
+    Agent:
+      type: object
+      properties:
+        id:
+          type: string
+        url:
+          type: string
+        web_url:
+          type: string
+        name:
+          type: string
+        connection_state:
+          type: string
+        ip_address:
+          type: string
+        hostname:
+          type: string
+        user_agent:
+          type: string
+        version:
+          type: string
+        creator:
+          $ref: '#/components/schemas/User'
+        created_at:
+          type: string
+          format: date-time
+        meta_data:
+          type: array
+          items:
+            type: string
+        last_job_finished_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        priority:
+          type: integer
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+        graphql_id:
+          type: string
+        name:
+          type: string
+        email:
+          type: string
+        avatar_url:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+  parameters:
+    Org:
+      name: org
+      in: path
+      required: true
+      description: Organization slug.
+      schema:
+        type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: Bearer token issued from your Buildkite Personal Access Tokens page.

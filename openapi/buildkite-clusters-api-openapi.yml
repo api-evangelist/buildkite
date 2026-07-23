@@ -1,0 +1,161 @@
+openapi: 3.1.0
+info:
+  title: Buildkite REST AccessToken Clusters API
+  description: 'Best-effort OpenAPI 3.1 description of the Buildkite REST API for organizations, pipelines,
+
+    builds, jobs, agents, artifacts, annotations, clusters, queues, agent tokens,
+
+    pipeline templates, rules, teams, and access tokens.
+
+
+    Authentication is via a Bearer token issued from the Buildkite UI.
+
+    '
+  version: '2.0'
+  contact:
+    name: Buildkite
+    url: https://buildkite.com/docs/apis/rest-api
+servers:
+- url: https://api.buildkite.com/v2
+  description: Buildkite REST API v2
+security:
+- bearerAuth: []
+tags:
+- name: Clusters
+paths:
+  /organizations/{org}/clusters:
+    parameters:
+    - $ref: '#/components/parameters/Org'
+    get:
+      tags:
+      - Clusters
+      summary: List clusters
+      operationId: listClusters
+      responses:
+        '200':
+          description: Clusters
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Cluster'
+    post:
+      tags:
+      - Clusters
+      summary: Create cluster
+      operationId: createCluster
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - name
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+                emoji:
+                  type: string
+                color:
+                  type: string
+      responses:
+        '201':
+          description: Cluster
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cluster'
+  /organizations/{org}/clusters/{id}:
+    parameters:
+    - $ref: '#/components/parameters/Org'
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      tags:
+      - Clusters
+      summary: Get cluster
+      operationId: getCluster
+      responses:
+        '200':
+          description: Cluster
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cluster'
+    put:
+      tags:
+      - Clusters
+      summary: Update cluster
+      operationId: updateCluster
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+      responses:
+        '200':
+          description: Cluster
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cluster'
+    delete:
+      tags:
+      - Clusters
+      summary: Delete cluster
+      operationId: deleteCluster
+      responses:
+        '204':
+          description: Deleted
+components:
+  parameters:
+    Org:
+      name: org
+      in: path
+      required: true
+      description: Organization slug.
+      schema:
+        type: string
+  schemas:
+    Cluster:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        emoji:
+          type: string
+        color:
+          type: string
+        url:
+          type: string
+        web_url:
+          type: string
+        queues_url:
+          type: string
+        default_queue_url:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: Bearer token issued from your Buildkite Personal Access Tokens page.

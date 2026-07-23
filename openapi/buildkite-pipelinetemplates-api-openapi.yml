@@ -1,0 +1,163 @@
+openapi: 3.1.0
+info:
+  title: Buildkite REST AccessToken PipelineTemplates API
+  description: 'Best-effort OpenAPI 3.1 description of the Buildkite REST API for organizations, pipelines,
+
+    builds, jobs, agents, artifacts, annotations, clusters, queues, agent tokens,
+
+    pipeline templates, rules, teams, and access tokens.
+
+
+    Authentication is via a Bearer token issued from the Buildkite UI.
+
+    '
+  version: '2.0'
+  contact:
+    name: Buildkite
+    url: https://buildkite.com/docs/apis/rest-api
+servers:
+- url: https://api.buildkite.com/v2
+  description: Buildkite REST API v2
+security:
+- bearerAuth: []
+tags:
+- name: PipelineTemplates
+paths:
+  /organizations/{org}/pipeline-templates:
+    parameters:
+    - $ref: '#/components/parameters/Org'
+    get:
+      tags:
+      - PipelineTemplates
+      summary: List pipeline templates
+      operationId: listPipelineTemplates
+      responses:
+        '200':
+          description: Templates
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PipelineTemplate'
+    post:
+      tags:
+      - PipelineTemplates
+      summary: Create pipeline template
+      operationId: createPipelineTemplate
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - name
+              - configuration
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+                configuration:
+                  type: string
+                available:
+                  type: boolean
+      responses:
+        '201':
+          description: Template
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PipelineTemplate'
+  /organizations/{org}/pipeline-templates/{uuid}:
+    parameters:
+    - $ref: '#/components/parameters/Org'
+    - name: uuid
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      tags:
+      - PipelineTemplates
+      summary: Get pipeline template
+      operationId: getPipelineTemplate
+      responses:
+        '200':
+          description: Template
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PipelineTemplate'
+    patch:
+      tags:
+      - PipelineTemplates
+      summary: Update pipeline template
+      operationId: updatePipelineTemplate
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                configuration:
+                  type: string
+      responses:
+        '200':
+          description: Template
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PipelineTemplate'
+    delete:
+      tags:
+      - PipelineTemplates
+      summary: Delete pipeline template
+      operationId: deletePipelineTemplate
+      responses:
+        '204':
+          description: Deleted
+components:
+  schemas:
+    PipelineTemplate:
+      type: object
+      properties:
+        uuid:
+          type: string
+        graphql_id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        configuration:
+          type: string
+        available:
+          type: boolean
+        url:
+          type: string
+        web_url:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+  parameters:
+    Org:
+      name: org
+      in: path
+      required: true
+      description: Organization slug.
+      schema:
+        type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: Bearer token issued from your Buildkite Personal Access Tokens page.

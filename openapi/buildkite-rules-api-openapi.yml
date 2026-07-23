@@ -1,0 +1,129 @@
+openapi: 3.1.0
+info:
+  title: Buildkite REST AccessToken Rules API
+  description: 'Best-effort OpenAPI 3.1 description of the Buildkite REST API for organizations, pipelines,
+
+    builds, jobs, agents, artifacts, annotations, clusters, queues, agent tokens,
+
+    pipeline templates, rules, teams, and access tokens.
+
+
+    Authentication is via a Bearer token issued from the Buildkite UI.
+
+    '
+  version: '2.0'
+  contact:
+    name: Buildkite
+    url: https://buildkite.com/docs/apis/rest-api
+servers:
+- url: https://api.buildkite.com/v2
+  description: Buildkite REST API v2
+security:
+- bearerAuth: []
+tags:
+- name: Rules
+paths:
+  /organizations/{org}/rules:
+    parameters:
+    - $ref: '#/components/parameters/Org'
+    get:
+      tags:
+      - Rules
+      summary: List rules
+      operationId: listRules
+      responses:
+        '200':
+          description: Rules
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Rule'
+    post:
+      tags:
+      - Rules
+      summary: Create rule
+      operationId: createRule
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - type
+              - value
+              properties:
+                type:
+                  type: string
+                value:
+                  type: string
+      responses:
+        '201':
+          description: Rule
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Rule'
+  /organizations/{org}/rules/{uuid}:
+    parameters:
+    - $ref: '#/components/parameters/Org'
+    - name: uuid
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      tags:
+      - Rules
+      summary: Get rule
+      operationId: getRule
+      responses:
+        '200':
+          description: Rule
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Rule'
+    delete:
+      tags:
+      - Rules
+      summary: Delete rule
+      operationId: deleteRule
+      responses:
+        '204':
+          description: Deleted
+components:
+  schemas:
+    Rule:
+      type: object
+      properties:
+        uuid:
+          type: string
+        type:
+          type: string
+        value:
+          type: string
+        action:
+          type: string
+        effect:
+          type: string
+        url:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+  parameters:
+    Org:
+      name: org
+      in: path
+      required: true
+      description: Organization slug.
+      schema:
+        type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: Bearer token issued from your Buildkite Personal Access Tokens page.

@@ -1,0 +1,142 @@
+openapi: 3.1.0
+info:
+  title: Buildkite REST AccessToken Annotations API
+  description: 'Best-effort OpenAPI 3.1 description of the Buildkite REST API for organizations, pipelines,
+
+    builds, jobs, agents, artifacts, annotations, clusters, queues, agent tokens,
+
+    pipeline templates, rules, teams, and access tokens.
+
+
+    Authentication is via a Bearer token issued from the Buildkite UI.
+
+    '
+  version: '2.0'
+  contact:
+    name: Buildkite
+    url: https://buildkite.com/docs/apis/rest-api
+servers:
+- url: https://api.buildkite.com/v2
+  description: Buildkite REST API v2
+security:
+- bearerAuth: []
+tags:
+- name: Annotations
+paths:
+  /organizations/{org}/pipelines/{slug}/builds/{number}/annotations:
+    parameters:
+    - $ref: '#/components/parameters/Org'
+    - $ref: '#/components/parameters/PipelineSlug'
+    - $ref: '#/components/parameters/BuildNumber'
+    get:
+      tags:
+      - Annotations
+      summary: List annotations
+      operationId: listAnnotations
+      responses:
+        '200':
+          description: Annotations
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Annotation'
+    post:
+      tags:
+      - Annotations
+      summary: Create annotation
+      operationId: createAnnotation
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - body
+              - style
+              - context
+              properties:
+                body:
+                  type: string
+                style:
+                  type: string
+                  enum:
+                  - info
+                  - warning
+                  - error
+                  - success
+                context:
+                  type: string
+      responses:
+        '201':
+          description: Annotation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Annotation'
+  /organizations/{org}/pipelines/{slug}/builds/{number}/annotations/{uuid}:
+    parameters:
+    - $ref: '#/components/parameters/Org'
+    - $ref: '#/components/parameters/PipelineSlug'
+    - $ref: '#/components/parameters/BuildNumber'
+    - name: uuid
+      in: path
+      required: true
+      schema:
+        type: string
+    delete:
+      tags:
+      - Annotations
+      summary: Delete annotation
+      operationId: deleteAnnotation
+      responses:
+        '204':
+          description: Deleted
+components:
+  parameters:
+    BuildNumber:
+      name: number
+      in: path
+      required: true
+      description: Build number.
+      schema:
+        type: integer
+    Org:
+      name: org
+      in: path
+      required: true
+      description: Organization slug.
+      schema:
+        type: string
+    PipelineSlug:
+      name: slug
+      in: path
+      required: true
+      description: Pipeline slug.
+      schema:
+        type: string
+  schemas:
+    Annotation:
+      type: object
+      properties:
+        id:
+          type: string
+        context:
+          type: string
+        style:
+          type: string
+        body_html:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: Bearer token issued from your Buildkite Personal Access Tokens page.

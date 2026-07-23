@@ -1,0 +1,177 @@
+openapi: 3.1.0
+info:
+  title: Buildkite REST AccessToken Artifacts API
+  description: 'Best-effort OpenAPI 3.1 description of the Buildkite REST API for organizations, pipelines,
+
+    builds, jobs, agents, artifacts, annotations, clusters, queues, agent tokens,
+
+    pipeline templates, rules, teams, and access tokens.
+
+
+    Authentication is via a Bearer token issued from the Buildkite UI.
+
+    '
+  version: '2.0'
+  contact:
+    name: Buildkite
+    url: https://buildkite.com/docs/apis/rest-api
+servers:
+- url: https://api.buildkite.com/v2
+  description: Buildkite REST API v2
+security:
+- bearerAuth: []
+tags:
+- name: Artifacts
+paths:
+  /organizations/{org}/pipelines/{slug}/builds/{number}/artifacts:
+    parameters:
+    - $ref: '#/components/parameters/Org'
+    - $ref: '#/components/parameters/PipelineSlug'
+    - $ref: '#/components/parameters/BuildNumber'
+    get:
+      tags:
+      - Artifacts
+      summary: List build artifacts
+      operationId: listBuildArtifacts
+      responses:
+        '200':
+          description: Artifacts
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Artifact'
+  /organizations/{org}/pipelines/{slug}/builds/{number}/jobs/{jobId}/artifacts:
+    parameters:
+    - $ref: '#/components/parameters/Org'
+    - $ref: '#/components/parameters/PipelineSlug'
+    - $ref: '#/components/parameters/BuildNumber'
+    - $ref: '#/components/parameters/JobId'
+    get:
+      tags:
+      - Artifacts
+      summary: List job artifacts
+      operationId: listJobArtifacts
+      responses:
+        '200':
+          description: Artifacts
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Artifact'
+  /organizations/{org}/pipelines/{slug}/builds/{number}/jobs/{jobId}/artifacts/{id}:
+    parameters:
+    - $ref: '#/components/parameters/Org'
+    - $ref: '#/components/parameters/PipelineSlug'
+    - $ref: '#/components/parameters/BuildNumber'
+    - $ref: '#/components/parameters/JobId'
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      tags:
+      - Artifacts
+      summary: Get artifact
+      operationId: getArtifact
+      responses:
+        '200':
+          description: Artifact
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Artifact'
+    delete:
+      tags:
+      - Artifacts
+      summary: Delete artifact
+      operationId: deleteArtifact
+      responses:
+        '204':
+          description: Deleted
+  /organizations/{org}/pipelines/{slug}/builds/{number}/jobs/{jobId}/artifacts/{id}/download:
+    parameters:
+    - $ref: '#/components/parameters/Org'
+    - $ref: '#/components/parameters/PipelineSlug'
+    - $ref: '#/components/parameters/BuildNumber'
+    - $ref: '#/components/parameters/JobId'
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      tags:
+      - Artifacts
+      summary: Download artifact
+      operationId: downloadArtifact
+      responses:
+        '302':
+          description: Redirect to artifact download
+components:
+  parameters:
+    PipelineSlug:
+      name: slug
+      in: path
+      required: true
+      description: Pipeline slug.
+      schema:
+        type: string
+    BuildNumber:
+      name: number
+      in: path
+      required: true
+      description: Build number.
+      schema:
+        type: integer
+    JobId:
+      name: jobId
+      in: path
+      required: true
+      description: Job ID.
+      schema:
+        type: string
+    Org:
+      name: org
+      in: path
+      required: true
+      description: Organization slug.
+      schema:
+        type: string
+  schemas:
+    Artifact:
+      type: object
+      properties:
+        id:
+          type: string
+        job_id:
+          type: string
+        url:
+          type: string
+        download_url:
+          type: string
+        state:
+          type: string
+        path:
+          type: string
+        dirname:
+          type: string
+        filename:
+          type: string
+        mime_type:
+          type: string
+        file_size:
+          type: integer
+        sha1sum:
+          type: string
+        sha256sum:
+          type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: Bearer token issued from your Buildkite Personal Access Tokens page.

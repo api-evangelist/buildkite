@@ -1,0 +1,194 @@
+openapi: 3.1.0
+info:
+  title: Buildkite REST AccessToken Queues API
+  description: 'Best-effort OpenAPI 3.1 description of the Buildkite REST API for organizations, pipelines,
+
+    builds, jobs, agents, artifacts, annotations, clusters, queues, agent tokens,
+
+    pipeline templates, rules, teams, and access tokens.
+
+
+    Authentication is via a Bearer token issued from the Buildkite UI.
+
+    '
+  version: '2.0'
+  contact:
+    name: Buildkite
+    url: https://buildkite.com/docs/apis/rest-api
+servers:
+- url: https://api.buildkite.com/v2
+  description: Buildkite REST API v2
+security:
+- bearerAuth: []
+tags:
+- name: Queues
+paths:
+  /organizations/{org}/clusters/{clusterId}/queues:
+    parameters:
+    - $ref: '#/components/parameters/Org'
+    - $ref: '#/components/parameters/ClusterId'
+    get:
+      tags:
+      - Queues
+      summary: List queues
+      operationId: listQueues
+      responses:
+        '200':
+          description: Queues
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Queue'
+    post:
+      tags:
+      - Queues
+      summary: Create queue
+      operationId: createQueue
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - key
+              properties:
+                key:
+                  type: string
+                description:
+                  type: string
+      responses:
+        '201':
+          description: Queue
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Queue'
+  /organizations/{org}/clusters/{clusterId}/queues/{id}:
+    parameters:
+    - $ref: '#/components/parameters/Org'
+    - $ref: '#/components/parameters/ClusterId'
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      tags:
+      - Queues
+      summary: Get queue
+      operationId: getQueue
+      responses:
+        '200':
+          description: Queue
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Queue'
+    put:
+      tags:
+      - Queues
+      summary: Update queue
+      operationId: updateQueue
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                description:
+                  type: string
+      responses:
+        '200':
+          description: Queue
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Queue'
+    delete:
+      tags:
+      - Queues
+      summary: Delete queue
+      operationId: deleteQueue
+      responses:
+        '204':
+          description: Deleted
+  /organizations/{org}/clusters/{clusterId}/queues/{id}/pause_dispatch:
+    parameters:
+    - $ref: '#/components/parameters/Org'
+    - $ref: '#/components/parameters/ClusterId'
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+    post:
+      tags:
+      - Queues
+      summary: Pause dispatch
+      operationId: pauseQueueDispatch
+      responses:
+        '200':
+          description: Paused
+  /organizations/{org}/clusters/{clusterId}/queues/{id}/resume_dispatch:
+    parameters:
+    - $ref: '#/components/parameters/Org'
+    - $ref: '#/components/parameters/ClusterId'
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+    post:
+      tags:
+      - Queues
+      summary: Resume dispatch
+      operationId: resumeQueueDispatch
+      responses:
+        '200':
+          description: Resumed
+components:
+  parameters:
+    Org:
+      name: org
+      in: path
+      required: true
+      description: Organization slug.
+      schema:
+        type: string
+    ClusterId:
+      name: clusterId
+      in: path
+      required: true
+      description: Cluster ID.
+      schema:
+        type: string
+  schemas:
+    Queue:
+      type: object
+      properties:
+        id:
+          type: string
+        key:
+          type: string
+        description:
+          type: string
+        dispatch_paused:
+          type: boolean
+        url:
+          type: string
+        web_url:
+          type: string
+        cluster_url:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: Bearer token issued from your Buildkite Personal Access Tokens page.

@@ -1,0 +1,152 @@
+openapi: 3.1.0
+info:
+  title: Buildkite REST AccessToken AgentTokens API
+  description: 'Best-effort OpenAPI 3.1 description of the Buildkite REST API for organizations, pipelines,
+
+    builds, jobs, agents, artifacts, annotations, clusters, queues, agent tokens,
+
+    pipeline templates, rules, teams, and access tokens.
+
+
+    Authentication is via a Bearer token issued from the Buildkite UI.
+
+    '
+  version: '2.0'
+  contact:
+    name: Buildkite
+    url: https://buildkite.com/docs/apis/rest-api
+servers:
+- url: https://api.buildkite.com/v2
+  description: Buildkite REST API v2
+security:
+- bearerAuth: []
+tags:
+- name: AgentTokens
+paths:
+  /organizations/{org}/clusters/{clusterId}/tokens:
+    parameters:
+    - $ref: '#/components/parameters/Org'
+    - $ref: '#/components/parameters/ClusterId'
+    get:
+      tags:
+      - AgentTokens
+      summary: List agent tokens
+      operationId: listAgentTokens
+      responses:
+        '200':
+          description: Tokens
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AgentToken'
+    post:
+      tags:
+      - AgentTokens
+      summary: Create agent token
+      operationId: createAgentToken
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                description:
+                  type: string
+                allowed_ip_addresses:
+                  type: string
+      responses:
+        '201':
+          description: Token
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AgentToken'
+  /organizations/{org}/clusters/{clusterId}/tokens/{id}:
+    parameters:
+    - $ref: '#/components/parameters/Org'
+    - $ref: '#/components/parameters/ClusterId'
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      tags:
+      - AgentTokens
+      summary: Get agent token
+      operationId: getAgentToken
+      responses:
+        '200':
+          description: Token
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AgentToken'
+    put:
+      tags:
+      - AgentTokens
+      summary: Update agent token
+      operationId: updateAgentToken
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                description:
+                  type: string
+      responses:
+        '200':
+          description: Token
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AgentToken'
+    delete:
+      tags:
+      - AgentTokens
+      summary: Revoke agent token
+      operationId: revokeAgentToken
+      responses:
+        '204':
+          description: Revoked
+components:
+  parameters:
+    Org:
+      name: org
+      in: path
+      required: true
+      description: Organization slug.
+      schema:
+        type: string
+    ClusterId:
+      name: clusterId
+      in: path
+      required: true
+      description: Cluster ID.
+      schema:
+        type: string
+  schemas:
+    AgentToken:
+      type: object
+      properties:
+        id:
+          type: string
+        description:
+          type: string
+        token:
+          type: string
+        allowed_ip_addresses:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: Bearer token issued from your Buildkite Personal Access Tokens page.

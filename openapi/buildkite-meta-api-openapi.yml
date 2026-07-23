@@ -1,0 +1,49 @@
+openapi: 3.1.0
+info:
+  title: Buildkite REST AccessToken Meta API
+  description: 'Best-effort OpenAPI 3.1 description of the Buildkite REST API for organizations, pipelines,
+
+    builds, jobs, agents, artifacts, annotations, clusters, queues, agent tokens,
+
+    pipeline templates, rules, teams, and access tokens.
+
+
+    Authentication is via a Bearer token issued from the Buildkite UI.
+
+    '
+  version: '2.0'
+  contact:
+    name: Buildkite
+    url: https://buildkite.com/docs/apis/rest-api
+servers:
+- url: https://api.buildkite.com/v2
+  description: Buildkite REST API v2
+security:
+- bearerAuth: []
+tags:
+- name: Meta
+paths:
+  /meta:
+    get:
+      tags:
+      - Meta
+      summary: Get Buildkite meta information
+      operationId: getMeta
+      responses:
+        '200':
+          description: Meta information
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  webhook_ips:
+                    type: array
+                    items:
+                      type: string
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: Bearer token issued from your Buildkite Personal Access Tokens page.

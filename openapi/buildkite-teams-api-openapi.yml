@@ -1,0 +1,167 @@
+openapi: 3.1.0
+info:
+  title: Buildkite REST AccessToken Teams API
+  description: 'Best-effort OpenAPI 3.1 description of the Buildkite REST API for organizations, pipelines,
+
+    builds, jobs, agents, artifacts, annotations, clusters, queues, agent tokens,
+
+    pipeline templates, rules, teams, and access tokens.
+
+
+    Authentication is via a Bearer token issued from the Buildkite UI.
+
+    '
+  version: '2.0'
+  contact:
+    name: Buildkite
+    url: https://buildkite.com/docs/apis/rest-api
+servers:
+- url: https://api.buildkite.com/v2
+  description: Buildkite REST API v2
+security:
+- bearerAuth: []
+tags:
+- name: Teams
+paths:
+  /organizations/{org}/teams:
+    parameters:
+    - $ref: '#/components/parameters/Org'
+    get:
+      tags:
+      - Teams
+      summary: List teams
+      operationId: listTeams
+      responses:
+        '200':
+          description: Teams
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Team'
+    post:
+      tags:
+      - Teams
+      summary: Create team
+      operationId: createTeam
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - name
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+                privacy:
+                  type: string
+                  enum:
+                  - visible
+                  - secret
+                is_default_team:
+                  type: boolean
+                default_member_role:
+                  type: string
+                  enum:
+                  - maintainer
+                  - member
+                members_can_create_pipelines:
+                  type: boolean
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Team'
+  /organizations/{org}/teams/{teamUuid}:
+    parameters:
+    - $ref: '#/components/parameters/Org'
+    - name: teamUuid
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      tags:
+      - Teams
+      summary: Get team
+      operationId: getTeam
+      responses:
+        '200':
+          description: Team
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Team'
+    patch:
+      tags:
+      - Teams
+      summary: Update team
+      operationId: updateTeam
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+      responses:
+        '200':
+          description: Team
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Team'
+    delete:
+      tags:
+      - Teams
+      summary: Delete team
+      operationId: deleteTeam
+      responses:
+        '204':
+          description: Deleted
+components:
+  schemas:
+    Team:
+      type: object
+      properties:
+        id:
+          type: string
+        uuid:
+          type: string
+        slug:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        privacy:
+          type: string
+        default_team:
+          type: boolean
+        created_at:
+          type: string
+          format: date-time
+  parameters:
+    Org:
+      name: org
+      in: path
+      required: true
+      description: Organization slug.
+      schema:
+        type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: Bearer token issued from your Buildkite Personal Access Tokens page.
