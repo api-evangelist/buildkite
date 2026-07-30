@@ -9,7 +9,20 @@ description: >-
   templates, builds, jobs, agents, clusters, queues, teams, rules, artifacts,
   annotations, and access tokens. Test Engine adds test execution and analytics
   endpoints.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/buildkite.png
 tags:
 - DevOps
 - CI/CD
@@ -25,8 +38,7 @@ apis:
 - aid: buildkite:rest
   name: Buildkite REST API
   description: >-
-    JSON over HTTPS REST API for the Buildkite control plane. Bearer-token
-    auth with API access tokens.
+    JSON over HTTPS REST API for the Buildkite control plane. Bearer-token auth with API access tokens.
   image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   humanURL: https://buildkite.com/docs/apis/rest-api
   baseURL: https://api.buildkite.com/v2
@@ -44,9 +56,8 @@ apis:
 - aid: buildkite:graphql
   name: Buildkite GraphQL API
   description: >-
-    Relay-compliant GraphQL API. Single endpoint for nested queries across
-    organizations, pipelines, builds, jobs, agents, teams. Introspection
-    supported. Bearer auth with the "Enable GraphQL API Access" scope.
+    Relay-compliant GraphQL API. Single endpoint for nested queries across organizations, pipelines, builds,
+    jobs, agents, teams. Introspection supported. Bearer auth with the "Enable GraphQL API Access" scope.
   image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   humanURL: https://buildkite.com/docs/apis/graphql-api
   baseURL: https://graphql.buildkite.com/v1
@@ -63,9 +74,8 @@ apis:
 - aid: buildkite:agent-api
   name: Buildkite Agent API
   description: >-
-    API consumed by buildkite-agent — register, retrieve work, send job
-    events and upload artifacts/annotations. Used by self-hosted and hosted
-    agents.
+    API consumed by buildkite-agent — register, retrieve work, send job events and upload artifacts/annotations.
+    Used by self-hosted and hosted agents.
   image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   humanURL: https://buildkite.com/docs/apis/agent-api
   baseURL: https://agent.buildkite.com/v3
@@ -76,6 +86,176 @@ apis:
   properties:
   - type: Documentation
     url: https://buildkite.com/docs/apis/agent-api
+- aid: buildkite:buildkite-accesstoken-api
+  name: Buildkite AccessToken API
+  description: The AccessToken API from Buildkite — 1 operation(s) for accesstoken.
+  humanURL: https://buildkite.com/docs/apis/rest-api
+  baseURL: https://api.buildkite.com/v2
+  tags:
+  - AccessToken
+  properties:
+  - type: OpenAPI
+    url: openapi/buildkite-accesstoken-api-openapi.yml
+- aid: buildkite:buildkite-agents-api
+  name: Buildkite Agents API
+  description: The Agents API from Buildkite — 5 operation(s) for agents.
+  humanURL: https://buildkite.com/docs/apis/rest-api
+  baseURL: https://api.buildkite.com/v2
+  tags:
+  - Agents
+  properties:
+  - type: OpenAPI
+    url: openapi/buildkite-agents-api-openapi.yml
+- aid: buildkite:buildkite-agenttokens-api
+  name: Buildkite AgentTokens API
+  description: The AgentTokens API from Buildkite — 2 operation(s) for agenttokens.
+  humanURL: https://buildkite.com/docs/apis/rest-api
+  baseURL: https://api.buildkite.com/v2
+  tags:
+  - AgentTokens
+  properties:
+  - type: OpenAPI
+    url: openapi/buildkite-agenttokens-api-openapi.yml
+- aid: buildkite:buildkite-annotations-api
+  name: Buildkite Annotations API
+  description: The Annotations API from Buildkite — 2 operation(s) for annotations.
+  humanURL: https://buildkite.com/docs/apis/rest-api
+  baseURL: https://api.buildkite.com/v2
+  tags:
+  - Annotations
+  properties:
+  - type: OpenAPI
+    url: openapi/buildkite-annotations-api-openapi.yml
+- aid: buildkite:buildkite-artifacts-api
+  name: Buildkite Artifacts API
+  description: The Artifacts API from Buildkite — 4 operation(s) for artifacts.
+  humanURL: https://buildkite.com/docs/apis/rest-api
+  baseURL: https://api.buildkite.com/v2
+  tags:
+  - Artifacts
+  properties:
+  - type: OpenAPI
+    url: openapi/buildkite-artifacts-api-openapi.yml
+- aid: buildkite:buildkite-builds-api
+  name: Buildkite Builds API
+  description: The Builds API from Buildkite — 6 operation(s) for builds.
+  humanURL: https://buildkite.com/docs/apis/rest-api
+  baseURL: https://api.buildkite.com/v2
+  tags:
+  - Builds
+  properties:
+  - type: OpenAPI
+    url: openapi/buildkite-builds-api-openapi.yml
+- aid: buildkite:buildkite-clusters-api
+  name: Buildkite Clusters API
+  description: The Clusters API from Buildkite — 2 operation(s) for clusters.
+  humanURL: https://buildkite.com/docs/apis/rest-api
+  baseURL: https://api.buildkite.com/v2
+  tags:
+  - Clusters
+  properties:
+  - type: OpenAPI
+    url: openapi/buildkite-clusters-api-openapi.yml
+- aid: buildkite:buildkite-emojis-api
+  name: Buildkite Emojis API
+  description: The Emojis API from Buildkite — 1 operation(s) for emojis.
+  humanURL: https://buildkite.com/docs/apis/rest-api
+  baseURL: https://api.buildkite.com/v2
+  tags:
+  - Emojis
+  properties:
+  - type: OpenAPI
+    url: openapi/buildkite-emojis-api-openapi.yml
+- aid: buildkite:buildkite-jobs-api
+  name: Buildkite Jobs API
+  description: The Jobs API from Buildkite — 5 operation(s) for jobs.
+  humanURL: https://buildkite.com/docs/apis/rest-api
+  baseURL: https://api.buildkite.com/v2
+  tags:
+  - Jobs
+  properties:
+  - type: OpenAPI
+    url: openapi/buildkite-jobs-api-openapi.yml
+- aid: buildkite:buildkite-meta-api
+  name: Buildkite Meta API
+  description: The Meta API from Buildkite — 1 operation(s) for meta.
+  humanURL: https://buildkite.com/docs/apis/rest-api
+  baseURL: https://api.buildkite.com/v2
+  tags:
+  - Meta
+  properties:
+  - type: OpenAPI
+    url: openapi/buildkite-meta-api-openapi.yml
+- aid: buildkite:buildkite-organizations-api
+  name: Buildkite Organizations API
+  description: The Organizations API from Buildkite — 4 operation(s) for organizations.
+  humanURL: https://buildkite.com/docs/apis/rest-api
+  baseURL: https://api.buildkite.com/v2
+  tags:
+  - Organizations
+  properties:
+  - type: OpenAPI
+    url: openapi/buildkite-organizations-api-openapi.yml
+- aid: buildkite:buildkite-pipelines-api
+  name: Buildkite Pipelines API
+  description: The Pipelines API from Buildkite — 5 operation(s) for pipelines.
+  humanURL: https://buildkite.com/docs/apis/rest-api
+  baseURL: https://api.buildkite.com/v2
+  tags:
+  - Pipelines
+  properties:
+  - type: OpenAPI
+    url: openapi/buildkite-pipelines-api-openapi.yml
+- aid: buildkite:buildkite-pipelinetemplates-api
+  name: Buildkite PipelineTemplates API
+  description: The PipelineTemplates API from Buildkite — 2 operation(s) for pipelinetemplates.
+  humanURL: https://buildkite.com/docs/apis/rest-api
+  baseURL: https://api.buildkite.com/v2
+  tags:
+  - PipelineTemplates
+  properties:
+  - type: OpenAPI
+    url: openapi/buildkite-pipelinetemplates-api-openapi.yml
+- aid: buildkite:buildkite-queues-api
+  name: Buildkite Queues API
+  description: The Queues API from Buildkite — 4 operation(s) for queues.
+  humanURL: https://buildkite.com/docs/apis/rest-api
+  baseURL: https://api.buildkite.com/v2
+  tags:
+  - Queues
+  properties:
+  - type: OpenAPI
+    url: openapi/buildkite-queues-api-openapi.yml
+- aid: buildkite:buildkite-rules-api
+  name: Buildkite Rules API
+  description: The Rules API from Buildkite — 2 operation(s) for rules.
+  humanURL: https://buildkite.com/docs/apis/rest-api
+  baseURL: https://api.buildkite.com/v2
+  tags:
+  - Rules
+  properties:
+  - type: OpenAPI
+    url: openapi/buildkite-rules-api-openapi.yml
+- aid: buildkite:buildkite-teams-api
+  name: Buildkite Teams API
+  description: The Teams API from Buildkite — 2 operation(s) for teams.
+  humanURL: https://buildkite.com/docs/apis/rest-api
+  baseURL: https://api.buildkite.com/v2
+  tags:
+  - Teams
+  properties:
+  - type: OpenAPI
+    url: openapi/buildkite-teams-api-openapi.yml
+- aid: buildkite:buildkite-user-api
+  name: Buildkite User API
+  description: The User API from Buildkite — 1 operation(s) for user.
+  humanURL: https://buildkite.com/docs/apis/rest-api
+  baseURL: https://api.buildkite.com/v2
+  tags:
+  - User
+  properties:
+  - type: OpenAPI
+    url: openapi/buildkite-user-api-openapi.yml
 common:
 - type: AgenticAccess
   url: agentic-access/buildkite-agentic-access.yml
