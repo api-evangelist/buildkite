@@ -1,0 +1,254 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Buildkite REST AccessToken Jobs API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Jobs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retry a job",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.buildkite.com/v2/organizations/:org/pipelines/:slug/builds/:number/jobs/:jobId/retry",
+            "params": [
+              {
+                "name": "org",
+                "value": "",
+                "type": "path",
+                "description": "Organization slug."
+              },
+              {
+                "name": "slug",
+                "value": "",
+                "type": "path",
+                "description": "Pipeline slug."
+              },
+              {
+                "name": "number",
+                "value": "",
+                "type": "path",
+                "description": "Build number."
+              },
+              {
+                "name": "jobId",
+                "value": "",
+                "type": "path",
+                "description": "Job ID."
+              }
+            ]
+          },
+          "docs": "Retry a job"
+        },
+        {
+          "info": {
+            "name": "Reprioritize a job",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.buildkite.com/v2/organizations/:org/pipelines/:slug/builds/:number/jobs/:jobId/reprioritize",
+            "params": [
+              {
+                "name": "org",
+                "value": "",
+                "type": "path",
+                "description": "Organization slug."
+              },
+              {
+                "name": "slug",
+                "value": "",
+                "type": "path",
+                "description": "Pipeline slug."
+              },
+              {
+                "name": "number",
+                "value": "",
+                "type": "path",
+                "description": "Build number."
+              },
+              {
+                "name": "jobId",
+                "value": "",
+                "type": "path",
+                "description": "Job ID."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Reprioritize a job"
+        },
+        {
+          "info": {
+            "name": "Unblock a job",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.buildkite.com/v2/organizations/:org/pipelines/:slug/builds/:number/jobs/:jobId/unblock",
+            "params": [
+              {
+                "name": "org",
+                "value": "",
+                "type": "path",
+                "description": "Organization slug."
+              },
+              {
+                "name": "slug",
+                "value": "",
+                "type": "path",
+                "description": "Pipeline slug."
+              },
+              {
+                "name": "number",
+                "value": "",
+                "type": "path",
+                "description": "Build number."
+              },
+              {
+                "name": "jobId",
+                "value": "",
+                "type": "path",
+                "description": "Job ID."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Unblock a job"
+        },
+        {
+          "info": {
+            "name": "Get job log",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.buildkite.com/v2/organizations/:org/pipelines/:slug/builds/:number/jobs/:jobId/log",
+            "params": [
+              {
+                "name": "org",
+                "value": "",
+                "type": "path",
+                "description": "Organization slug."
+              },
+              {
+                "name": "slug",
+                "value": "",
+                "type": "path",
+                "description": "Pipeline slug."
+              },
+              {
+                "name": "number",
+                "value": "",
+                "type": "path",
+                "description": "Build number."
+              },
+              {
+                "name": "jobId",
+                "value": "",
+                "type": "path",
+                "description": "Job ID."
+              }
+            ]
+          },
+          "docs": "Get job log"
+        },
+        {
+          "info": {
+            "name": "Delete job log",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.buildkite.com/v2/organizations/:org/pipelines/:slug/builds/:number/jobs/:jobId/log",
+            "params": [
+              {
+                "name": "org",
+                "value": "",
+                "type": "path",
+                "description": "Organization slug."
+              },
+              {
+                "name": "slug",
+                "value": "",
+                "type": "path",
+                "description": "Pipeline slug."
+              },
+              {
+                "name": "number",
+                "value": "",
+                "type": "path",
+                "description": "Build number."
+              },
+              {
+                "name": "jobId",
+                "value": "",
+                "type": "path",
+                "description": "Job ID."
+              }
+            ]
+          },
+          "docs": "Delete job log"
+        },
+        {
+          "info": {
+            "name": "Get job environment variables",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.buildkite.com/v2/organizations/:org/pipelines/:slug/builds/:number/jobs/:jobId/env",
+            "params": [
+              {
+                "name": "org",
+                "value": "",
+                "type": "path",
+                "description": "Organization slug."
+              },
+              {
+                "name": "slug",
+                "value": "",
+                "type": "path",
+                "description": "Pipeline slug."
+              },
+              {
+                "name": "number",
+                "value": "",
+                "type": "path",
+                "description": "Build number."
+              },
+              {
+                "name": "jobId",
+                "value": "",
+                "type": "path",
+                "description": "Job ID."
+              }
+            ]
+          },
+          "docs": "Get job environment variables"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

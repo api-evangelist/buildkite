@@ -1,0 +1,415 @@
+{
+  "item": [
+    {
+      "id": "aabd27f2-0c5c-4561-9e6b-32eaa558b7b8",
+      "name": "Organizations",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a77d5875-b3d4-43b8-85ab-8ac5ca3690fa",
+          "name": "List organizations",
+          "request": {
+            "name": "List organizations",
+            "description": {},
+            "url": {
+              "path": [
+                "organizations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e40b4ff6-997c-454e-a9ee-2f544f8fc202",
+              "name": "Organizations",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"slug\": \"string\",\n    \"name\": \"string\",\n    \"url\": \"string\",\n    \"web_url\": \"string\",\n    \"pipelines_url\": \"string\",\n    \"agents_url\": \"string\",\n    \"emojis_url\": \"string\",\n    \"created_at\": \"1969-02-27T13:04:44.420Z\"\n  },\n  {\n    \"id\": \"string\",\n    \"slug\": \"string\",\n    \"name\": \"string\",\n    \"url\": \"string\",\n    \"web_url\": \"string\",\n    \"pipelines_url\": \"string\",\n    \"agents_url\": \"string\",\n    \"emojis_url\": \"string\",\n    \"created_at\": \"1949-07-31T21:32:36.491Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "91c09a1b-1553-4825-8b0a-f0527eede828",
+          "name": "Get an organization",
+          "request": {
+            "name": "Get an organization",
+            "description": {},
+            "url": {
+              "path": [
+                "organizations",
+                ":org"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "org",
+                  "description": "(Required) Organization slug."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "56534dcd-b4ab-42e4-87ef-9f4367a9ebe2",
+              "name": "Organization",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizations",
+                    ":org"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "org",
+                      "description": "(Required) Organization slug."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"slug\": \"string\",\n  \"name\": \"string\",\n  \"url\": \"string\",\n  \"web_url\": \"string\",\n  \"pipelines_url\": \"string\",\n  \"agents_url\": \"string\",\n  \"emojis_url\": \"string\",\n  \"created_at\": \"2000-03-07T16:12:41.040Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7f4ce0a2-6fd3-451b-92a2-34306b4de8a3",
+          "name": "List members",
+          "request": {
+            "name": "List members",
+            "description": {},
+            "url": {
+              "path": [
+                "organizations",
+                ":org",
+                "members"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "org",
+                  "description": "(Required) Organization slug."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0d8d4b6f-b28d-45f4-90b4-e6cfac47224b",
+              "name": "Members",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizations",
+                    ":org",
+                    "members"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "org",
+                      "description": "(Required) Organization slug."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"role\": \"string\",\n    \"sso_mode_enabled\": false,\n    \"created_at\": \"1963-06-03T21:37:55.538Z\",\n    \"user\": {\n      \"id\": \"string\",\n      \"graphql_id\": \"string\",\n      \"name\": \"string\",\n      \"email\": \"string\",\n      \"avatar_url\": \"string\",\n      \"created_at\": \"2022-02-19T21:44:14.973Z\"\n    }\n  },\n  {\n    \"id\": \"string\",\n    \"role\": \"string\",\n    \"sso_mode_enabled\": false,\n    \"created_at\": \"1954-07-22T06:54:59.573Z\",\n    \"user\": {\n      \"id\": \"string\",\n      \"graphql_id\": \"string\",\n      \"name\": \"string\",\n      \"email\": \"string\",\n      \"avatar_url\": \"string\",\n      \"created_at\": \"1957-06-27T21:38:32.638Z\"\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e032035a-680b-48db-b2c5-78d84aa33d38",
+          "name": "Get a member",
+          "request": {
+            "name": "Get a member",
+            "description": {},
+            "url": {
+              "path": [
+                "organizations",
+                ":org",
+                "members",
+                ":userUuid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "org",
+                  "description": "(Required) Organization slug."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userUuid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1551c7a0-d59c-403a-8a88-5ab9eccd1477",
+              "name": "Member",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizations",
+                    ":org",
+                    "members",
+                    ":userUuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "org",
+                      "description": "(Required) Organization slug."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userUuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"role\": \"string\",\n  \"sso_mode_enabled\": true,\n  \"created_at\": \"1979-12-02T14:12:01.794Z\",\n  \"user\": {\n    \"id\": \"string\",\n    \"graphql_id\": \"string\",\n    \"name\": \"string\",\n    \"email\": \"string\",\n    \"avatar_url\": \"string\",\n    \"created_at\": \"1974-12-09T02:14:27.860Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.buildkite.com/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a0be5043-4a6a-4dbf-84be-4d7f52267779",
+    "name": "Buildkite REST AccessToken Organizations API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Best-effort OpenAPI 3.1 description of the Buildkite REST API for organizations, pipelines,\nbuilds, jobs, agents, artifacts, annotations, clusters, queues, agent tokens,\npipeline templates, rules, teams, and access tokens.\n\nAuthentication is via a Bearer token issued from the Buildkite UI.\n\n\nContact Support:\n Name: Buildkite",
+      "type": "text/plain"
+    }
+  }
+}

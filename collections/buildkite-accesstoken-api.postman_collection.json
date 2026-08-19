@@ -1,0 +1,181 @@
+{
+  "item": [
+    {
+      "id": "88f0f6f0-c9b3-4d92-b93c-80d0ce2451fe",
+      "name": "AccessToken",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8620ea8a-337e-432d-a61f-a54247641506",
+          "name": "Get current access token",
+          "request": {
+            "name": "Get current access token",
+            "description": {},
+            "url": {
+              "path": [
+                "access-token"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0a41abd2-cc6a-4e0d-b8cd-313f8a28f10b",
+              "name": "Token info",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "access-token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"uuid\": \"string\",\n  \"scopes\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "55bdd524-3820-4c7f-b81f-fbb23ac0ce7b",
+          "name": "Revoke current access token",
+          "request": {
+            "name": "Revoke current access token",
+            "description": {},
+            "url": {
+              "path": [
+                "access-token"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bf02b288-f86e-41e6-ae26-e0771b99c88c",
+              "name": "Revoked",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "access-token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.buildkite.com/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "58f253fa-e316-4c2f-9d67-85f80b775f21",
+    "name": "Buildkite REST AccessToken API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Best-effort OpenAPI 3.1 description of the Buildkite REST API for organizations, pipelines,\nbuilds, jobs, agents, artifacts, annotations, clusters, queues, agent tokens,\npipeline templates, rules, teams, and access tokens.\n\nAuthentication is via a Bearer token issued from the Buildkite UI.\n\n\nContact Support:\n Name: Buildkite",
+      "type": "text/plain"
+    }
+  }
+}

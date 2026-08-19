@@ -1,0 +1,220 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Buildkite REST AccessToken Pipelines API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Pipelines",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List pipelines",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.buildkite.com/v2/organizations/:org/pipelines",
+            "params": [
+              {
+                "name": "org",
+                "value": "",
+                "type": "path",
+                "description": "Organization slug."
+              }
+            ]
+          },
+          "docs": "List pipelines"
+        },
+        {
+          "info": {
+            "name": "Create pipeline",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.buildkite.com/v2/organizations/:org/pipelines",
+            "params": [
+              {
+                "name": "org",
+                "value": "",
+                "type": "path",
+                "description": "Organization slug."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create pipeline"
+        },
+        {
+          "info": {
+            "name": "Get pipeline",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.buildkite.com/v2/organizations/:org/pipelines/:slug",
+            "params": [
+              {
+                "name": "org",
+                "value": "",
+                "type": "path",
+                "description": "Organization slug."
+              },
+              {
+                "name": "slug",
+                "value": "",
+                "type": "path",
+                "description": "Pipeline slug."
+              }
+            ]
+          },
+          "docs": "Get pipeline"
+        },
+        {
+          "info": {
+            "name": "Update pipeline",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.buildkite.com/v2/organizations/:org/pipelines/:slug",
+            "params": [
+              {
+                "name": "org",
+                "value": "",
+                "type": "path",
+                "description": "Organization slug."
+              },
+              {
+                "name": "slug",
+                "value": "",
+                "type": "path",
+                "description": "Pipeline slug."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update pipeline"
+        },
+        {
+          "info": {
+            "name": "Delete pipeline",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.buildkite.com/v2/organizations/:org/pipelines/:slug",
+            "params": [
+              {
+                "name": "org",
+                "value": "",
+                "type": "path",
+                "description": "Organization slug."
+              },
+              {
+                "name": "slug",
+                "value": "",
+                "type": "path",
+                "description": "Pipeline slug."
+              }
+            ]
+          },
+          "docs": "Delete pipeline"
+        },
+        {
+          "info": {
+            "name": "Archive pipeline",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.buildkite.com/v2/organizations/:org/pipelines/:slug/archive",
+            "params": [
+              {
+                "name": "org",
+                "value": "",
+                "type": "path",
+                "description": "Organization slug."
+              },
+              {
+                "name": "slug",
+                "value": "",
+                "type": "path",
+                "description": "Pipeline slug."
+              }
+            ]
+          },
+          "docs": "Archive pipeline"
+        },
+        {
+          "info": {
+            "name": "Unarchive pipeline",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.buildkite.com/v2/organizations/:org/pipelines/:slug/unarchive",
+            "params": [
+              {
+                "name": "org",
+                "value": "",
+                "type": "path",
+                "description": "Organization slug."
+              },
+              {
+                "name": "slug",
+                "value": "",
+                "type": "path",
+                "description": "Pipeline slug."
+              }
+            ]
+          },
+          "docs": "Unarchive pipeline"
+        },
+        {
+          "info": {
+            "name": "Rotate webhook URL",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.buildkite.com/v2/organizations/:org/pipelines/:slug/webhook",
+            "params": [
+              {
+                "name": "org",
+                "value": "",
+                "type": "path",
+                "description": "Organization slug."
+              },
+              {
+                "name": "slug",
+                "value": "",
+                "type": "path",
+                "description": "Pipeline slug."
+              }
+            ]
+          },
+          "docs": "Rotate webhook URL"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

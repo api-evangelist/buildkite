@@ -1,0 +1,136 @@
+{
+  "item": [
+    {
+      "id": "1d2e63a6-375d-4b77-8a9b-4a7b49e34b71",
+      "name": "Emojis",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "95d74667-5ab2-4574-aeae-042fd1c4da60",
+          "name": "List custom emojis",
+          "request": {
+            "name": "List custom emojis",
+            "description": {},
+            "url": {
+              "path": [
+                "organizations",
+                ":org",
+                "emojis"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "org",
+                  "description": "(Required) Organization slug."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c8cc67f4-aa65-4922-9e62-bf0e26c043ec",
+              "name": "Emojis",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizations",
+                    ":org",
+                    "emojis"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "org",
+                      "description": "(Required) Organization slug."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"name\": \"string\",\n    \"url\": \"string\"\n  },\n  {\n    \"name\": \"string\",\n    \"url\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.buildkite.com/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f48dfd3a-2654-4a4a-9616-8150092e8738",
+    "name": "Buildkite REST AccessToken Emojis API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Best-effort OpenAPI 3.1 description of the Buildkite REST API for organizations, pipelines,\nbuilds, jobs, agents, artifacts, annotations, clusters, queues, agent tokens,\npipeline templates, rules, teams, and access tokens.\n\nAuthentication is via a Bearer token issued from the Buildkite UI.\n\n\nContact Support:\n Name: Buildkite",
+      "type": "text/plain"
+    }
+  }
+}

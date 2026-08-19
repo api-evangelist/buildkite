@@ -1,0 +1,849 @@
+{
+  "item": [
+    {
+      "id": "0d9871cf-e7c3-4482-a397-c7337cf5ef4f",
+      "name": "Builds",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a0ac4105-bbc4-4931-8915-56d3cc3dd573",
+          "name": "List all builds",
+          "request": {
+            "name": "List all builds",
+            "description": {},
+            "url": {
+              "path": [
+                "builds"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a3605f81-3135-40fe-b69d-d09e48309237",
+              "name": "Builds",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "builds"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"url\": \"string\",\n    \"web_url\": \"string\",\n    \"number\": 4026,\n    \"state\": \"string\",\n    \"message\": \"string\",\n    \"commit\": \"string\",\n    \"branch\": \"string\",\n    \"env\": {},\n    \"author\": {},\n    \"creator\": {\n      \"id\": \"string\",\n      \"graphql_id\": \"string\",\n      \"name\": \"string\",\n      \"email\": \"string\",\n      \"avatar_url\": \"string\",\n      \"created_at\": \"1953-09-12T10:41:05.531Z\"\n    },\n    \"source\": \"string\",\n    \"created_at\": \"2014-07-01T07:13:27.478Z\",\n    \"scheduled_at\": \"2019-06-16T18:55:27.176Z\",\n    \"started_at\": \"1997-04-25T10:10:08.289Z\",\n    \"finished_at\": \"1990-02-01T04:43:21.500Z\",\n    \"pipeline\": {\n      \"id\": \"string\",\n      \"url\": \"string\",\n      \"web_url\": \"string\",\n      \"name\": \"string\",\n      \"slug\": \"string\",\n      \"description\": \"string\",\n      \"repository\": \"string\",\n      \"cluster_id\": \"string\",\n      \"branch_configuration\": \"string\",\n      \"default_branch\": \"string\",\n      \"skip_queued_branch_builds\": true,\n      \"provider\": {},\n      \"builds_url\": \"string\",\n      \"badge_url\": \"string\",\n      \"created_at\": \"2002-05-09T15:32:53.605Z\",\n      \"archived_at\": \"1977-07-15T18:56:41.189Z\"\n    },\n    \"jobs\": [\n      {\n        \"id\": \"string\",\n        \"type\": \"string\",\n        \"name\": \"string\",\n        \"step_key\": \"string\",\n        \"priority\": {},\n        \"agent_query_rules\": [\n          \"string\",\n          \"string\"\n        ],\n        \"state\": \"string\",\n        \"web_url\": \"string\",\n        \"log_url\": \"string\",\n        \"raw_log_url\": \"string\",\n        \"command\": \"string\",\n        \"soft_failed\": false,\n        \"exit_status\": 1293,\n        \"artifact_paths\": \"string\",\n        \"agent\": {\n          \"id\": \"string\",\n          \"url\": \"string\",\n          \"web_url\": \"string\",\n          \"name\": \"string\",\n          \"connection_state\": \"string\",\n          \"ip_address\": \"string\",\n          \"hostname\": \"string\",\n          \"user_agent\": \"string\",\n          \"version\": \"string\",\n          \"creator\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"graphql_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"email\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"avatar_url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"created_at\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"created_at\": \"1998-08-31T17:28:02.545Z\",\n          \"meta_data\": [\n            \"string\",\n            \"string\"\n          ],\n          \"last_job_finished_at\": \"2016-05-11T17:54:11.413Z\",\n          \"priority\": 4052\n        },\n        \"created_at\": \"1986-07-10T21:49:53.344Z\",\n        \"scheduled_at\": \"1955-10-03T21:18:29.986Z\",\n        \"runnable_at\": \"2024-02-19T19:22:02.446Z\",\n        \"started_at\": \"1964-08-29T03:35:28.303Z\",\n        \"finished_at\": \"2026-01-04T20:17:08.478Z\"\n      },\n      {\n        \"id\": \"string\",\n        \"type\": \"string\",\n        \"name\": \"string\",\n        \"step_key\": \"string\",\n        \"priority\": {},\n        \"agent_query_rules\": [\n          \"string\",\n          \"string\"\n        ],\n        \"state\": \"string\",\n        \"web_url\": \"string\",\n        \"log_url\": \"string\",\n        \"raw_log_url\": \"string\",\n        \"command\": \"string\",\n        \"soft_failed\": false,\n        \"exit_status\": 6604,\n        \"artifact_paths\": \"string\",\n        \"agent\": {\n          \"id\": \"string\",\n          \"url\": \"string\",\n          \"web_url\": \"string\",\n          \"name\": \"string\",\n          \"connection_state\": \"string\",\n          \"ip_address\": \"string\",\n          \"hostname\": \"string\",\n          \"user_agent\": \"string\",\n          \"version\": \"string\",\n          \"creator\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"graphql_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"email\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"avatar_url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"created_at\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"created_at\": \"2022-06-07T08:42:02.491Z\",\n          \"meta_data\": [\n            \"string\",\n            \"string\"\n          ],\n          \"last_job_finished_at\": \"2014-04-21T20:05:29.178Z\",\n          \"priority\": 7616\n        },\n        \"created_at\": \"2022-01-08T16:42:23.943Z\",\n        \"scheduled_at\": \"2020-07-24T08:46:02.043Z\",\n        \"runnable_at\": \"1960-01-15T16:49:01.120Z\",\n        \"started_at\": \"1946-09-23T23:39:12.570Z\",\n        \"finished_at\": \"1976-01-08T03:06:26.722Z\"\n      }\n    ]\n  },\n  {\n    \"id\": \"string\",\n    \"url\": \"string\",\n    \"web_url\": \"string\",\n    \"number\": 8025,\n    \"state\": \"string\",\n    \"message\": \"string\",\n    \"commit\": \"string\",\n    \"branch\": \"string\",\n    \"env\": {},\n    \"author\": {},\n    \"creator\": {\n      \"id\": \"string\",\n      \"graphql_id\": \"string\",\n      \"name\": \"string\",\n      \"email\": \"string\",\n      \"avatar_url\": \"string\",\n      \"created_at\": \"2008-04-01T21:30:29.980Z\"\n    },\n    \"source\": \"string\",\n    \"created_at\": \"1988-04-20T22:15:08.102Z\",\n    \"scheduled_at\": \"1987-10-13T17:25:47.930Z\",\n    \"started_at\": \"2020-10-21T01:48:10.916Z\",\n    \"finished_at\": \"2016-01-14T11:56:00.269Z\",\n    \"pipeline\": {\n      \"id\": \"string\",\n      \"url\": \"string\",\n      \"web_url\": \"string\",\n      \"name\": \"string\",\n      \"slug\": \"string\",\n      \"description\": \"string\",\n      \"repository\": \"string\",\n      \"cluster_id\": \"string\",\n      \"branch_configuration\": \"string\",\n      \"default_branch\": \"string\",\n      \"skip_queued_branch_builds\": false,\n      \"provider\": {},\n      \"builds_url\": \"string\",\n      \"badge_url\": \"string\",\n      \"created_at\": \"1951-08-27T15:38:29.129Z\",\n      \"archived_at\": \"1974-06-14T14:21:08.984Z\"\n    },\n    \"jobs\": [\n      {\n        \"id\": \"string\",\n        \"type\": \"string\",\n        \"name\": \"string\",\n        \"step_key\": \"string\",\n        \"priority\": {},\n        \"agent_query_rules\": [\n          \"string\",\n          \"string\"\n        ],\n        \"state\": \"string\",\n        \"web_url\": \"string\",\n        \"log_url\": \"string\",\n        \"raw_log_url\": \"string\",\n        \"command\": \"string\",\n        \"soft_failed\": true,\n        \"exit_status\": 6161,\n        \"artifact_paths\": \"string\",\n        \"agent\": {\n          \"id\": \"string\",\n          \"url\": \"string\",\n          \"web_url\": \"string\",\n          \"name\": \"string\",\n          \"connection_state\": \"string\",\n          \"ip_address\": \"string\",\n          \"hostname\": \"string\",\n          \"user_agent\": \"string\",\n          \"version\": \"string\",\n          \"creator\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"graphql_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"email\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"avatar_url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"created_at\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"created_at\": \"2013-12-03T14:59:14.918Z\",\n          \"meta_data\": [\n            \"string\",\n            \"string\"\n          ],\n          \"last_job_finished_at\": \"2020-11-22T14:37:59.006Z\",\n          \"priority\": 3749\n        },\n        \"created_at\": \"2015-11-02T16:01:27.154Z\",\n        \"scheduled_at\": \"1995-08-30T14:38:48.266Z\",\n        \"runnable_at\": \"2024-08-31T05:37:58.388Z\",\n        \"started_at\": \"1992-07-28T15:21:09.644Z\",\n        \"finished_at\": \"2004-03-02T08:06:48.152Z\"\n      },\n      {\n        \"id\": \"string\",\n        \"type\": \"string\",\n        \"name\": \"string\",\n        \"step_key\": \"string\",\n        \"priority\": {},\n        \"agent_query_rules\": [\n          \"string\",\n          \"string\"\n        ],\n        \"state\": \"string\",\n        \"web_url\": \"string\",\n        \"log_url\": \"string\",\n        \"raw_log_url\": \"string\",\n        \"command\": \"string\",\n        \"soft_failed\": false,\n        \"exit_status\": 4379,\n        \"artifact_paths\": \"string\",\n        \"agent\": {\n          \"id\": \"string\",\n          \"url\": \"string\",\n          \"web_url\": \"string\",\n          \"name\": \"string\",\n          \"connection_state\": \"string\",\n          \"ip_address\": \"string\",\n          \"hostname\": \"string\",\n          \"user_agent\": \"string\",\n          \"version\": \"string\",\n          \"creator\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"graphql_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"email\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"avatar_url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"created_at\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"created_at\": \"1949-11-14T05:51:10.162Z\",\n          \"meta_data\": [\n            \"string\",\n            \"string\"\n          ],\n          \"last_job_finished_at\": \"1971-01-01T22:52:39.085Z\",\n          \"priority\": 3787\n        },\n        \"created_at\": \"1966-05-17T07:41:03.006Z\",\n        \"scheduled_at\": \"1963-04-01T11:49:43.154Z\",\n        \"runnable_at\": \"2015-11-29T20:59:27.722Z\",\n        \"started_at\": \"1957-09-16T11:34:08.505Z\",\n        \"finished_at\": \"2014-07-19T04:53:37.731Z\"\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "08d2dc3e-1af7-4517-b6cf-9822adfc6356",
+          "name": "List org builds",
+          "request": {
+            "name": "List org builds",
+            "description": {},
+            "url": {
+              "path": [
+                "organizations",
+                ":org",
+                "builds"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "org",
+                  "description": "(Required) Organization slug."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f93fa803-2bea-4981-b03f-690b30be1caa",
+              "name": "Builds",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizations",
+                    ":org",
+                    "builds"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "org",
+                      "description": "(Required) Organization slug."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"url\": \"string\",\n    \"web_url\": \"string\",\n    \"number\": 4026,\n    \"state\": \"string\",\n    \"message\": \"string\",\n    \"commit\": \"string\",\n    \"branch\": \"string\",\n    \"env\": {},\n    \"author\": {},\n    \"creator\": {\n      \"id\": \"string\",\n      \"graphql_id\": \"string\",\n      \"name\": \"string\",\n      \"email\": \"string\",\n      \"avatar_url\": \"string\",\n      \"created_at\": \"1953-09-12T10:41:05.531Z\"\n    },\n    \"source\": \"string\",\n    \"created_at\": \"2014-07-01T07:13:27.478Z\",\n    \"scheduled_at\": \"2019-06-16T18:55:27.176Z\",\n    \"started_at\": \"1997-04-25T10:10:08.289Z\",\n    \"finished_at\": \"1990-02-01T04:43:21.500Z\",\n    \"pipeline\": {\n      \"id\": \"string\",\n      \"url\": \"string\",\n      \"web_url\": \"string\",\n      \"name\": \"string\",\n      \"slug\": \"string\",\n      \"description\": \"string\",\n      \"repository\": \"string\",\n      \"cluster_id\": \"string\",\n      \"branch_configuration\": \"string\",\n      \"default_branch\": \"string\",\n      \"skip_queued_branch_builds\": true,\n      \"provider\": {},\n      \"builds_url\": \"string\",\n      \"badge_url\": \"string\",\n      \"created_at\": \"2002-05-09T15:32:53.605Z\",\n      \"archived_at\": \"1977-07-15T18:56:41.189Z\"\n    },\n    \"jobs\": [\n      {\n        \"id\": \"string\",\n        \"type\": \"string\",\n        \"name\": \"string\",\n        \"step_key\": \"string\",\n        \"priority\": {},\n        \"agent_query_rules\": [\n          \"string\",\n          \"string\"\n        ],\n        \"state\": \"string\",\n        \"web_url\": \"string\",\n        \"log_url\": \"string\",\n        \"raw_log_url\": \"string\",\n        \"command\": \"string\",\n        \"soft_failed\": false,\n        \"exit_status\": 1293,\n        \"artifact_paths\": \"string\",\n        \"agent\": {\n          \"id\": \"string\",\n          \"url\": \"string\",\n          \"web_url\": \"string\",\n          \"name\": \"string\",\n          \"connection_state\": \"string\",\n          \"ip_address\": \"string\",\n          \"hostname\": \"string\",\n          \"user_agent\": \"string\",\n          \"version\": \"string\",\n          \"creator\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"graphql_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"email\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"avatar_url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"created_at\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"created_at\": \"1998-08-31T17:28:02.545Z\",\n          \"meta_data\": [\n            \"string\",\n            \"string\"\n          ],\n          \"last_job_finished_at\": \"2016-05-11T17:54:11.413Z\",\n          \"priority\": 4052\n        },\n        \"created_at\": \"1986-07-10T21:49:53.344Z\",\n        \"scheduled_at\": \"1955-10-03T21:18:29.986Z\",\n        \"runnable_at\": \"2024-02-19T19:22:02.446Z\",\n        \"started_at\": \"1964-08-29T03:35:28.303Z\",\n        \"finished_at\": \"2026-01-04T20:17:08.478Z\"\n      },\n      {\n        \"id\": \"string\",\n        \"type\": \"string\",\n        \"name\": \"string\",\n        \"step_key\": \"string\",\n        \"priority\": {},\n        \"agent_query_rules\": [\n          \"string\",\n          \"string\"\n        ],\n        \"state\": \"string\",\n        \"web_url\": \"string\",\n        \"log_url\": \"string\",\n        \"raw_log_url\": \"string\",\n        \"command\": \"string\",\n        \"soft_failed\": false,\n        \"exit_status\": 6604,\n        \"artifact_paths\": \"string\",\n        \"agent\": {\n          \"id\": \"string\",\n          \"url\": \"string\",\n          \"web_url\": \"string\",\n          \"name\": \"string\",\n          \"connection_state\": \"string\",\n          \"ip_address\": \"string\",\n          \"hostname\": \"string\",\n          \"user_agent\": \"string\",\n          \"version\": \"string\",\n          \"creator\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"graphql_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"email\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"avatar_url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"created_at\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"created_at\": \"2022-06-07T08:42:02.491Z\",\n          \"meta_data\": [\n            \"string\",\n            \"string\"\n          ],\n          \"last_job_finished_at\": \"2014-04-21T20:05:29.178Z\",\n          \"priority\": 7616\n        },\n        \"created_at\": \"2022-01-08T16:42:23.943Z\",\n        \"scheduled_at\": \"2020-07-24T08:46:02.043Z\",\n        \"runnable_at\": \"1960-01-15T16:49:01.120Z\",\n        \"started_at\": \"1946-09-23T23:39:12.570Z\",\n        \"finished_at\": \"1976-01-08T03:06:26.722Z\"\n      }\n    ]\n  },\n  {\n    \"id\": \"string\",\n    \"url\": \"string\",\n    \"web_url\": \"string\",\n    \"number\": 8025,\n    \"state\": \"string\",\n    \"message\": \"string\",\n    \"commit\": \"string\",\n    \"branch\": \"string\",\n    \"env\": {},\n    \"author\": {},\n    \"creator\": {\n      \"id\": \"string\",\n      \"graphql_id\": \"string\",\n      \"name\": \"string\",\n      \"email\": \"string\",\n      \"avatar_url\": \"string\",\n      \"created_at\": \"2008-04-01T21:30:29.980Z\"\n    },\n    \"source\": \"string\",\n    \"created_at\": \"1988-04-20T22:15:08.102Z\",\n    \"scheduled_at\": \"1987-10-13T17:25:47.930Z\",\n    \"started_at\": \"2020-10-21T01:48:10.916Z\",\n    \"finished_at\": \"2016-01-14T11:56:00.269Z\",\n    \"pipeline\": {\n      \"id\": \"string\",\n      \"url\": \"string\",\n      \"web_url\": \"string\",\n      \"name\": \"string\",\n      \"slug\": \"string\",\n      \"description\": \"string\",\n      \"repository\": \"string\",\n      \"cluster_id\": \"string\",\n      \"branch_configuration\": \"string\",\n      \"default_branch\": \"string\",\n      \"skip_queued_branch_builds\": false,\n      \"provider\": {},\n      \"builds_url\": \"string\",\n      \"badge_url\": \"string\",\n      \"created_at\": \"1951-08-27T15:38:29.129Z\",\n      \"archived_at\": \"1974-06-14T14:21:08.984Z\"\n    },\n    \"jobs\": [\n      {\n        \"id\": \"string\",\n        \"type\": \"string\",\n        \"name\": \"string\",\n        \"step_key\": \"string\",\n        \"priority\": {},\n        \"agent_query_rules\": [\n          \"string\",\n          \"string\"\n        ],\n        \"state\": \"string\",\n        \"web_url\": \"string\",\n        \"log_url\": \"string\",\n        \"raw_log_url\": \"string\",\n        \"command\": \"string\",\n        \"soft_failed\": true,\n        \"exit_status\": 6161,\n        \"artifact_paths\": \"string\",\n        \"agent\": {\n          \"id\": \"string\",\n          \"url\": \"string\",\n          \"web_url\": \"string\",\n          \"name\": \"string\",\n          \"connection_state\": \"string\",\n          \"ip_address\": \"string\",\n          \"hostname\": \"string\",\n          \"user_agent\": \"string\",\n          \"version\": \"string\",\n          \"creator\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"graphql_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"email\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"avatar_url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"created_at\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"created_at\": \"2013-12-03T14:59:14.918Z\",\n          \"meta_data\": [\n            \"string\",\n            \"string\"\n          ],\n          \"last_job_finished_at\": \"2020-11-22T14:37:59.006Z\",\n          \"priority\": 3749\n        },\n        \"created_at\": \"2015-11-02T16:01:27.154Z\",\n        \"scheduled_at\": \"1995-08-30T14:38:48.266Z\",\n        \"runnable_at\": \"2024-08-31T05:37:58.388Z\",\n        \"started_at\": \"1992-07-28T15:21:09.644Z\",\n        \"finished_at\": \"2004-03-02T08:06:48.152Z\"\n      },\n      {\n        \"id\": \"string\",\n        \"type\": \"string\",\n        \"name\": \"string\",\n        \"step_key\": \"string\",\n        \"priority\": {},\n        \"agent_query_rules\": [\n          \"string\",\n          \"string\"\n        ],\n        \"state\": \"string\",\n        \"web_url\": \"string\",\n        \"log_url\": \"string\",\n        \"raw_log_url\": \"string\",\n        \"command\": \"string\",\n        \"soft_failed\": false,\n        \"exit_status\": 4379,\n        \"artifact_paths\": \"string\",\n        \"agent\": {\n          \"id\": \"string\",\n          \"url\": \"string\",\n          \"web_url\": \"string\",\n          \"name\": \"string\",\n          \"connection_state\": \"string\",\n          \"ip_address\": \"string\",\n          \"hostname\": \"string\",\n          \"user_agent\": \"string\",\n          \"version\": \"string\",\n          \"creator\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"graphql_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"email\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"avatar_url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"created_at\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"created_at\": \"1949-11-14T05:51:10.162Z\",\n          \"meta_data\": [\n            \"string\",\n            \"string\"\n          ],\n          \"last_job_finished_at\": \"1971-01-01T22:52:39.085Z\",\n          \"priority\": 3787\n        },\n        \"created_at\": \"1966-05-17T07:41:03.006Z\",\n        \"scheduled_at\": \"1963-04-01T11:49:43.154Z\",\n        \"runnable_at\": \"2015-11-29T20:59:27.722Z\",\n        \"started_at\": \"1957-09-16T11:34:08.505Z\",\n        \"finished_at\": \"2014-07-19T04:53:37.731Z\"\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "416e7006-87d4-4739-a51b-6db640a3fa34",
+          "name": "List pipeline builds",
+          "request": {
+            "name": "List pipeline builds",
+            "description": {},
+            "url": {
+              "path": [
+                "organizations",
+                ":org",
+                "pipelines",
+                ":slug",
+                "builds"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "org",
+                  "description": "(Required) Organization slug."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "slug",
+                  "description": "(Required) Pipeline slug."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "13a6084b-298c-45ad-a9f6-695f1148d2b7",
+              "name": "Builds",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizations",
+                    ":org",
+                    "pipelines",
+                    ":slug",
+                    "builds"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "org",
+                      "description": "(Required) Organization slug."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "slug",
+                      "description": "(Required) Pipeline slug."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"url\": \"string\",\n    \"web_url\": \"string\",\n    \"number\": 4026,\n    \"state\": \"string\",\n    \"message\": \"string\",\n    \"commit\": \"string\",\n    \"branch\": \"string\",\n    \"env\": {},\n    \"author\": {},\n    \"creator\": {\n      \"id\": \"string\",\n      \"graphql_id\": \"string\",\n      \"name\": \"string\",\n      \"email\": \"string\",\n      \"avatar_url\": \"string\",\n      \"created_at\": \"1953-09-12T10:41:05.531Z\"\n    },\n    \"source\": \"string\",\n    \"created_at\": \"2014-07-01T07:13:27.478Z\",\n    \"scheduled_at\": \"2019-06-16T18:55:27.176Z\",\n    \"started_at\": \"1997-04-25T10:10:08.289Z\",\n    \"finished_at\": \"1990-02-01T04:43:21.500Z\",\n    \"pipeline\": {\n      \"id\": \"string\",\n      \"url\": \"string\",\n      \"web_url\": \"string\",\n      \"name\": \"string\",\n      \"slug\": \"string\",\n      \"description\": \"string\",\n      \"repository\": \"string\",\n      \"cluster_id\": \"string\",\n      \"branch_configuration\": \"string\",\n      \"default_branch\": \"string\",\n      \"skip_queued_branch_builds\": true,\n      \"provider\": {},\n      \"builds_url\": \"string\",\n      \"badge_url\": \"string\",\n      \"created_at\": \"2002-05-09T15:32:53.605Z\",\n      \"archived_at\": \"1977-07-15T18:56:41.189Z\"\n    },\n    \"jobs\": [\n      {\n        \"id\": \"string\",\n        \"type\": \"string\",\n        \"name\": \"string\",\n        \"step_key\": \"string\",\n        \"priority\": {},\n        \"agent_query_rules\": [\n          \"string\",\n          \"string\"\n        ],\n        \"state\": \"string\",\n        \"web_url\": \"string\",\n        \"log_url\": \"string\",\n        \"raw_log_url\": \"string\",\n        \"command\": \"string\",\n        \"soft_failed\": false,\n        \"exit_status\": 1293,\n        \"artifact_paths\": \"string\",\n        \"agent\": {\n          \"id\": \"string\",\n          \"url\": \"string\",\n          \"web_url\": \"string\",\n          \"name\": \"string\",\n          \"connection_state\": \"string\",\n          \"ip_address\": \"string\",\n          \"hostname\": \"string\",\n          \"user_agent\": \"string\",\n          \"version\": \"string\",\n          \"creator\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"graphql_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"email\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"avatar_url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"created_at\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"created_at\": \"1998-08-31T17:28:02.545Z\",\n          \"meta_data\": [\n            \"string\",\n            \"string\"\n          ],\n          \"last_job_finished_at\": \"2016-05-11T17:54:11.413Z\",\n          \"priority\": 4052\n        },\n        \"created_at\": \"1986-07-10T21:49:53.344Z\",\n        \"scheduled_at\": \"1955-10-03T21:18:29.986Z\",\n        \"runnable_at\": \"2024-02-19T19:22:02.446Z\",\n        \"started_at\": \"1964-08-29T03:35:28.303Z\",\n        \"finished_at\": \"2026-01-04T20:17:08.478Z\"\n      },\n      {\n        \"id\": \"string\",\n        \"type\": \"string\",\n        \"name\": \"string\",\n        \"step_key\": \"string\",\n        \"priority\": {},\n        \"agent_query_rules\": [\n          \"string\",\n          \"string\"\n        ],\n        \"state\": \"string\",\n        \"web_url\": \"string\",\n        \"log_url\": \"string\",\n        \"raw_log_url\": \"string\",\n        \"command\": \"string\",\n        \"soft_failed\": false,\n        \"exit_status\": 6604,\n        \"artifact_paths\": \"string\",\n        \"agent\": {\n          \"id\": \"string\",\n          \"url\": \"string\",\n          \"web_url\": \"string\",\n          \"name\": \"string\",\n          \"connection_state\": \"string\",\n          \"ip_address\": \"string\",\n          \"hostname\": \"string\",\n          \"user_agent\": \"string\",\n          \"version\": \"string\",\n          \"creator\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"graphql_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"email\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"avatar_url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"created_at\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"created_at\": \"2022-06-07T08:42:02.491Z\",\n          \"meta_data\": [\n            \"string\",\n            \"string\"\n          ],\n          \"last_job_finished_at\": \"2014-04-21T20:05:29.178Z\",\n          \"priority\": 7616\n        },\n        \"created_at\": \"2022-01-08T16:42:23.943Z\",\n        \"scheduled_at\": \"2020-07-24T08:46:02.043Z\",\n        \"runnable_at\": \"1960-01-15T16:49:01.120Z\",\n        \"started_at\": \"1946-09-23T23:39:12.570Z\",\n        \"finished_at\": \"1976-01-08T03:06:26.722Z\"\n      }\n    ]\n  },\n  {\n    \"id\": \"string\",\n    \"url\": \"string\",\n    \"web_url\": \"string\",\n    \"number\": 8025,\n    \"state\": \"string\",\n    \"message\": \"string\",\n    \"commit\": \"string\",\n    \"branch\": \"string\",\n    \"env\": {},\n    \"author\": {},\n    \"creator\": {\n      \"id\": \"string\",\n      \"graphql_id\": \"string\",\n      \"name\": \"string\",\n      \"email\": \"string\",\n      \"avatar_url\": \"string\",\n      \"created_at\": \"2008-04-01T21:30:29.980Z\"\n    },\n    \"source\": \"string\",\n    \"created_at\": \"1988-04-20T22:15:08.102Z\",\n    \"scheduled_at\": \"1987-10-13T17:25:47.930Z\",\n    \"started_at\": \"2020-10-21T01:48:10.916Z\",\n    \"finished_at\": \"2016-01-14T11:56:00.269Z\",\n    \"pipeline\": {\n      \"id\": \"string\",\n      \"url\": \"string\",\n      \"web_url\": \"string\",\n      \"name\": \"string\",\n      \"slug\": \"string\",\n      \"description\": \"string\",\n      \"repository\": \"string\",\n      \"cluster_id\": \"string\",\n      \"branch_configuration\": \"string\",\n      \"default_branch\": \"string\",\n      \"skip_queued_branch_builds\": false,\n      \"provider\": {},\n      \"builds_url\": \"string\",\n      \"badge_url\": \"string\",\n      \"created_at\": \"1951-08-27T15:38:29.129Z\",\n      \"archived_at\": \"1974-06-14T14:21:08.984Z\"\n    },\n    \"jobs\": [\n      {\n        \"id\": \"string\",\n        \"type\": \"string\",\n        \"name\": \"string\",\n        \"step_key\": \"string\",\n        \"priority\": {},\n        \"agent_query_rules\": [\n          \"string\",\n          \"string\"\n        ],\n        \"state\": \"string\",\n        \"web_url\": \"string\",\n        \"log_url\": \"string\",\n        \"raw_log_url\": \"string\",\n        \"command\": \"string\",\n        \"soft_failed\": true,\n        \"exit_status\": 6161,\n        \"artifact_paths\": \"string\",\n        \"agent\": {\n          \"id\": \"string\",\n          \"url\": \"string\",\n          \"web_url\": \"string\",\n          \"name\": \"string\",\n          \"connection_state\": \"string\",\n          \"ip_address\": \"string\",\n          \"hostname\": \"string\",\n          \"user_agent\": \"string\",\n          \"version\": \"string\",\n          \"creator\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"graphql_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"email\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"avatar_url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"created_at\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"created_at\": \"2013-12-03T14:59:14.918Z\",\n          \"meta_data\": [\n            \"string\",\n            \"string\"\n          ],\n          \"last_job_finished_at\": \"2020-11-22T14:37:59.006Z\",\n          \"priority\": 3749\n        },\n        \"created_at\": \"2015-11-02T16:01:27.154Z\",\n        \"scheduled_at\": \"1995-08-30T14:38:48.266Z\",\n        \"runnable_at\": \"2024-08-31T05:37:58.388Z\",\n        \"started_at\": \"1992-07-28T15:21:09.644Z\",\n        \"finished_at\": \"2004-03-02T08:06:48.152Z\"\n      },\n      {\n        \"id\": \"string\",\n        \"type\": \"string\",\n        \"name\": \"string\",\n        \"step_key\": \"string\",\n        \"priority\": {},\n        \"agent_query_rules\": [\n          \"string\",\n          \"string\"\n        ],\n        \"state\": \"string\",\n        \"web_url\": \"string\",\n        \"log_url\": \"string\",\n        \"raw_log_url\": \"string\",\n        \"command\": \"string\",\n        \"soft_failed\": false,\n        \"exit_status\": 4379,\n        \"artifact_paths\": \"string\",\n        \"agent\": {\n          \"id\": \"string\",\n          \"url\": \"string\",\n          \"web_url\": \"string\",\n          \"name\": \"string\",\n          \"connection_state\": \"string\",\n          \"ip_address\": \"string\",\n          \"hostname\": \"string\",\n          \"user_agent\": \"string\",\n          \"version\": \"string\",\n          \"creator\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"graphql_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"email\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"avatar_url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"created_at\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"created_at\": \"1949-11-14T05:51:10.162Z\",\n          \"meta_data\": [\n            \"string\",\n            \"string\"\n          ],\n          \"last_job_finished_at\": \"1971-01-01T22:52:39.085Z\",\n          \"priority\": 3787\n        },\n        \"created_at\": \"1966-05-17T07:41:03.006Z\",\n        \"scheduled_at\": \"1963-04-01T11:49:43.154Z\",\n        \"runnable_at\": \"2015-11-29T20:59:27.722Z\",\n        \"started_at\": \"1957-09-16T11:34:08.505Z\",\n        \"finished_at\": \"2014-07-19T04:53:37.731Z\"\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b4c46c84-cd4d-4424-b4f6-b19e8d516fdd",
+          "name": "Create build",
+          "request": {
+            "name": "Create build",
+            "description": {},
+            "url": {
+              "path": [
+                "organizations",
+                ":org",
+                "pipelines",
+                ":slug",
+                "builds"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "org",
+                  "description": "(Required) Organization slug."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "slug",
+                  "description": "(Required) Pipeline slug."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"commit\": \"<string>\",\n  \"branch\": \"<string>\",\n  \"message\": \"<string>\",\n  \"author\": {\n    \"name\": \"<string>\",\n    \"email\": \"<string>\"\n  },\n  \"env\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"meta_data\": \"<object>\",\n  \"clean_checkout\": \"<boolean>\",\n  \"pull_request_id\": \"<string>\",\n  \"pull_request_base_branch\": \"<string>\",\n  \"pull_request_repository\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4cafc06d-5ee1-4bae-bb20-099dfca75853",
+              "name": "Build",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizations",
+                    ":org",
+                    "pipelines",
+                    ":slug",
+                    "builds"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "org",
+                      "description": "(Required) Organization slug."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "slug",
+                      "description": "(Required) Pipeline slug."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"commit\": \"<string>\",\n  \"branch\": \"<string>\",\n  \"message\": \"<string>\",\n  \"author\": {\n    \"name\": \"<string>\",\n    \"email\": \"<string>\"\n  },\n  \"env\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"meta_data\": \"<object>\",\n  \"clean_checkout\": \"<boolean>\",\n  \"pull_request_id\": \"<string>\",\n  \"pull_request_base_branch\": \"<string>\",\n  \"pull_request_repository\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"url\": \"string\",\n  \"web_url\": \"string\",\n  \"number\": 2471,\n  \"state\": \"string\",\n  \"message\": \"string\",\n  \"commit\": \"string\",\n  \"branch\": \"string\",\n  \"env\": {},\n  \"author\": {},\n  \"creator\": {\n    \"id\": \"string\",\n    \"graphql_id\": \"string\",\n    \"name\": \"string\",\n    \"email\": \"string\",\n    \"avatar_url\": \"string\",\n    \"created_at\": \"1954-04-11T04:11:06.309Z\"\n  },\n  \"source\": \"string\",\n  \"created_at\": \"2001-12-15T11:37:13.430Z\",\n  \"scheduled_at\": \"1956-10-21T00:05:08.993Z\",\n  \"started_at\": \"2024-06-15T21:52:14.526Z\",\n  \"finished_at\": \"1973-04-18T15:08:20.309Z\",\n  \"pipeline\": {\n    \"id\": \"string\",\n    \"url\": \"string\",\n    \"web_url\": \"string\",\n    \"name\": \"string\",\n    \"slug\": \"string\",\n    \"description\": \"string\",\n    \"repository\": \"string\",\n    \"cluster_id\": \"string\",\n    \"branch_configuration\": \"string\",\n    \"default_branch\": \"string\",\n    \"skip_queued_branch_builds\": false,\n    \"provider\": {},\n    \"builds_url\": \"string\",\n    \"badge_url\": \"string\",\n    \"created_at\": \"2013-02-10T15:33:39.970Z\",\n    \"archived_at\": \"1959-07-16T09:11:39.026Z\"\n  },\n  \"jobs\": [\n    {\n      \"id\": \"string\",\n      \"type\": \"string\",\n      \"name\": \"string\",\n      \"step_key\": \"string\",\n      \"priority\": {},\n      \"agent_query_rules\": [\n        \"string\",\n        \"string\"\n      ],\n      \"state\": \"string\",\n      \"web_url\": \"string\",\n      \"log_url\": \"string\",\n      \"raw_log_url\": \"string\",\n      \"command\": \"string\",\n      \"soft_failed\": true,\n      \"exit_status\": 3654,\n      \"artifact_paths\": \"string\",\n      \"agent\": {\n        \"id\": \"string\",\n        \"url\": \"string\",\n        \"web_url\": \"string\",\n        \"name\": \"string\",\n        \"connection_state\": \"string\",\n        \"ip_address\": \"string\",\n        \"hostname\": \"string\",\n        \"user_agent\": \"string\",\n        \"version\": \"string\",\n        \"creator\": {\n          \"id\": \"string\",\n          \"graphql_id\": \"string\",\n          \"name\": \"string\",\n          \"email\": \"string\",\n          \"avatar_url\": \"string\",\n          \"created_at\": \"1953-09-02T00:05:54.105Z\"\n        },\n        \"created_at\": \"1990-02-14T00:53:58.851Z\",\n        \"meta_data\": [\n          \"string\",\n          \"string\"\n        ],\n        \"last_job_finished_at\": \"1956-09-14T12:00:59.823Z\",\n        \"priority\": 7599\n      },\n      \"created_at\": \"2008-01-02T00:01:16.289Z\",\n      \"scheduled_at\": \"2022-05-29T13:33:00.568Z\",\n      \"runnable_at\": \"1972-01-23T15:44:20.073Z\",\n      \"started_at\": \"1981-11-08T03:13:29.530Z\",\n      \"finished_at\": \"1995-12-14T09:14:13.318Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"type\": \"string\",\n      \"name\": \"string\",\n      \"step_key\": \"string\",\n      \"priority\": {},\n      \"agent_query_rules\": [\n        \"string\",\n        \"string\"\n      ],\n      \"state\": \"string\",\n      \"web_url\": \"string\",\n      \"log_url\": \"string\",\n      \"raw_log_url\": \"string\",\n      \"command\": \"string\",\n      \"soft_failed\": false,\n      \"exit_status\": 7346,\n      \"artifact_paths\": \"string\",\n      \"agent\": {\n        \"id\": \"string\",\n        \"url\": \"string\",\n        \"web_url\": \"string\",\n        \"name\": \"string\",\n        \"connection_state\": \"string\",\n        \"ip_address\": \"string\",\n        \"hostname\": \"string\",\n        \"user_agent\": \"string\",\n        \"version\": \"string\",\n        \"creator\": {\n          \"id\": \"string\",\n          \"graphql_id\": \"string\",\n          \"name\": \"string\",\n          \"email\": \"string\",\n          \"avatar_url\": \"string\",\n          \"created_at\": \"2006-02-04T22:27:59.208Z\"\n        },\n        \"created_at\": \"1972-01-25T23:04:45.586Z\",\n        \"meta_data\": [\n          \"string\",\n          \"string\"\n        ],\n        \"last_job_finished_at\": \"1957-11-29T09:05:44.038Z\",\n        \"priority\": 4865\n      },\n      \"created_at\": \"1973-10-16T21:18:57.790Z\",\n      \"scheduled_at\": \"2009-11-22T07:49:17.997Z\",\n      \"runnable_at\": \"1952-12-22T18:03:53.019Z\",\n      \"started_at\": \"1967-01-21T08:13:12.983Z\",\n      \"finished_at\": \"2006-05-03T18:39:34.156Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "003fd552-636e-4b65-8e3e-ceabb55ba2e3",
+          "name": "Get build",
+          "request": {
+            "name": "Get build",
+            "description": {},
+            "url": {
+              "path": [
+                "organizations",
+                ":org",
+                "pipelines",
+                ":slug",
+                "builds",
+                ":number"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "org",
+                  "description": "(Required) Organization slug."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "slug",
+                  "description": "(Required) Pipeline slug."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "number",
+                  "description": "(Required) Build number."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5cf0a800-43ef-4319-97b8-fee3db7c29ed",
+              "name": "Build",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizations",
+                    ":org",
+                    "pipelines",
+                    ":slug",
+                    "builds",
+                    ":number"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "org",
+                      "description": "(Required) Organization slug."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "slug",
+                      "description": "(Required) Pipeline slug."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "number",
+                      "description": "(Required) Build number."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"url\": \"string\",\n  \"web_url\": \"string\",\n  \"number\": 2471,\n  \"state\": \"string\",\n  \"message\": \"string\",\n  \"commit\": \"string\",\n  \"branch\": \"string\",\n  \"env\": {},\n  \"author\": {},\n  \"creator\": {\n    \"id\": \"string\",\n    \"graphql_id\": \"string\",\n    \"name\": \"string\",\n    \"email\": \"string\",\n    \"avatar_url\": \"string\",\n    \"created_at\": \"1954-04-11T04:11:06.309Z\"\n  },\n  \"source\": \"string\",\n  \"created_at\": \"2001-12-15T11:37:13.430Z\",\n  \"scheduled_at\": \"1956-10-21T00:05:08.993Z\",\n  \"started_at\": \"2024-06-15T21:52:14.526Z\",\n  \"finished_at\": \"1973-04-18T15:08:20.309Z\",\n  \"pipeline\": {\n    \"id\": \"string\",\n    \"url\": \"string\",\n    \"web_url\": \"string\",\n    \"name\": \"string\",\n    \"slug\": \"string\",\n    \"description\": \"string\",\n    \"repository\": \"string\",\n    \"cluster_id\": \"string\",\n    \"branch_configuration\": \"string\",\n    \"default_branch\": \"string\",\n    \"skip_queued_branch_builds\": false,\n    \"provider\": {},\n    \"builds_url\": \"string\",\n    \"badge_url\": \"string\",\n    \"created_at\": \"2013-02-10T15:33:39.970Z\",\n    \"archived_at\": \"1959-07-16T09:11:39.026Z\"\n  },\n  \"jobs\": [\n    {\n      \"id\": \"string\",\n      \"type\": \"string\",\n      \"name\": \"string\",\n      \"step_key\": \"string\",\n      \"priority\": {},\n      \"agent_query_rules\": [\n        \"string\",\n        \"string\"\n      ],\n      \"state\": \"string\",\n      \"web_url\": \"string\",\n      \"log_url\": \"string\",\n      \"raw_log_url\": \"string\",\n      \"command\": \"string\",\n      \"soft_failed\": true,\n      \"exit_status\": 3654,\n      \"artifact_paths\": \"string\",\n      \"agent\": {\n        \"id\": \"string\",\n        \"url\": \"string\",\n        \"web_url\": \"string\",\n        \"name\": \"string\",\n        \"connection_state\": \"string\",\n        \"ip_address\": \"string\",\n        \"hostname\": \"string\",\n        \"user_agent\": \"string\",\n        \"version\": \"string\",\n        \"creator\": {\n          \"id\": \"string\",\n          \"graphql_id\": \"string\",\n          \"name\": \"string\",\n          \"email\": \"string\",\n          \"avatar_url\": \"string\",\n          \"created_at\": \"1953-09-02T00:05:54.105Z\"\n        },\n        \"created_at\": \"1990-02-14T00:53:58.851Z\",\n        \"meta_data\": [\n          \"string\",\n          \"string\"\n        ],\n        \"last_job_finished_at\": \"1956-09-14T12:00:59.823Z\",\n        \"priority\": 7599\n      },\n      \"created_at\": \"2008-01-02T00:01:16.289Z\",\n      \"scheduled_at\": \"2022-05-29T13:33:00.568Z\",\n      \"runnable_at\": \"1972-01-23T15:44:20.073Z\",\n      \"started_at\": \"1981-11-08T03:13:29.530Z\",\n      \"finished_at\": \"1995-12-14T09:14:13.318Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"type\": \"string\",\n      \"name\": \"string\",\n      \"step_key\": \"string\",\n      \"priority\": {},\n      \"agent_query_rules\": [\n        \"string\",\n        \"string\"\n      ],\n      \"state\": \"string\",\n      \"web_url\": \"string\",\n      \"log_url\": \"string\",\n      \"raw_log_url\": \"string\",\n      \"command\": \"string\",\n      \"soft_failed\": false,\n      \"exit_status\": 7346,\n      \"artifact_paths\": \"string\",\n      \"agent\": {\n        \"id\": \"string\",\n        \"url\": \"string\",\n        \"web_url\": \"string\",\n        \"name\": \"string\",\n        \"connection_state\": \"string\",\n        \"ip_address\": \"string\",\n        \"hostname\": \"string\",\n        \"user_agent\": \"string\",\n        \"version\": \"string\",\n        \"creator\": {\n          \"id\": \"string\",\n          \"graphql_id\": \"string\",\n          \"name\": \"string\",\n          \"email\": \"string\",\n          \"avatar_url\": \"string\",\n          \"created_at\": \"2006-02-04T22:27:59.208Z\"\n        },\n        \"created_at\": \"1972-01-25T23:04:45.586Z\",\n        \"meta_data\": [\n          \"string\",\n          \"string\"\n        ],\n        \"last_job_finished_at\": \"1957-11-29T09:05:44.038Z\",\n        \"priority\": 4865\n      },\n      \"created_at\": \"1973-10-16T21:18:57.790Z\",\n      \"scheduled_at\": \"2009-11-22T07:49:17.997Z\",\n      \"runnable_at\": \"1952-12-22T18:03:53.019Z\",\n      \"started_at\": \"1967-01-21T08:13:12.983Z\",\n      \"finished_at\": \"2006-05-03T18:39:34.156Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "55d1e7e2-1e57-46d5-87bc-c3ecbb64b285",
+          "name": "Cancel build",
+          "request": {
+            "name": "Cancel build",
+            "description": {},
+            "url": {
+              "path": [
+                "organizations",
+                ":org",
+                "pipelines",
+                ":slug",
+                "builds",
+                ":number",
+                "cancel"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "org",
+                  "description": "(Required) Organization slug."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "slug",
+                  "description": "(Required) Pipeline slug."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "number",
+                  "description": "(Required) Build number."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3475e017-f3e1-45be-b2ac-fc2206640339",
+              "name": "Build",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizations",
+                    ":org",
+                    "pipelines",
+                    ":slug",
+                    "builds",
+                    ":number",
+                    "cancel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "org",
+                      "description": "(Required) Organization slug."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "slug",
+                      "description": "(Required) Pipeline slug."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "number",
+                      "description": "(Required) Build number."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"url\": \"string\",\n  \"web_url\": \"string\",\n  \"number\": 2471,\n  \"state\": \"string\",\n  \"message\": \"string\",\n  \"commit\": \"string\",\n  \"branch\": \"string\",\n  \"env\": {},\n  \"author\": {},\n  \"creator\": {\n    \"id\": \"string\",\n    \"graphql_id\": \"string\",\n    \"name\": \"string\",\n    \"email\": \"string\",\n    \"avatar_url\": \"string\",\n    \"created_at\": \"1954-04-11T04:11:06.309Z\"\n  },\n  \"source\": \"string\",\n  \"created_at\": \"2001-12-15T11:37:13.430Z\",\n  \"scheduled_at\": \"1956-10-21T00:05:08.993Z\",\n  \"started_at\": \"2024-06-15T21:52:14.526Z\",\n  \"finished_at\": \"1973-04-18T15:08:20.309Z\",\n  \"pipeline\": {\n    \"id\": \"string\",\n    \"url\": \"string\",\n    \"web_url\": \"string\",\n    \"name\": \"string\",\n    \"slug\": \"string\",\n    \"description\": \"string\",\n    \"repository\": \"string\",\n    \"cluster_id\": \"string\",\n    \"branch_configuration\": \"string\",\n    \"default_branch\": \"string\",\n    \"skip_queued_branch_builds\": false,\n    \"provider\": {},\n    \"builds_url\": \"string\",\n    \"badge_url\": \"string\",\n    \"created_at\": \"2013-02-10T15:33:39.970Z\",\n    \"archived_at\": \"1959-07-16T09:11:39.026Z\"\n  },\n  \"jobs\": [\n    {\n      \"id\": \"string\",\n      \"type\": \"string\",\n      \"name\": \"string\",\n      \"step_key\": \"string\",\n      \"priority\": {},\n      \"agent_query_rules\": [\n        \"string\",\n        \"string\"\n      ],\n      \"state\": \"string\",\n      \"web_url\": \"string\",\n      \"log_url\": \"string\",\n      \"raw_log_url\": \"string\",\n      \"command\": \"string\",\n      \"soft_failed\": true,\n      \"exit_status\": 3654,\n      \"artifact_paths\": \"string\",\n      \"agent\": {\n        \"id\": \"string\",\n        \"url\": \"string\",\n        \"web_url\": \"string\",\n        \"name\": \"string\",\n        \"connection_state\": \"string\",\n        \"ip_address\": \"string\",\n        \"hostname\": \"string\",\n        \"user_agent\": \"string\",\n        \"version\": \"string\",\n        \"creator\": {\n          \"id\": \"string\",\n          \"graphql_id\": \"string\",\n          \"name\": \"string\",\n          \"email\": \"string\",\n          \"avatar_url\": \"string\",\n          \"created_at\": \"1953-09-02T00:05:54.105Z\"\n        },\n        \"created_at\": \"1990-02-14T00:53:58.851Z\",\n        \"meta_data\": [\n          \"string\",\n          \"string\"\n        ],\n        \"last_job_finished_at\": \"1956-09-14T12:00:59.823Z\",\n        \"priority\": 7599\n      },\n      \"created_at\": \"2008-01-02T00:01:16.289Z\",\n      \"scheduled_at\": \"2022-05-29T13:33:00.568Z\",\n      \"runnable_at\": \"1972-01-23T15:44:20.073Z\",\n      \"started_at\": \"1981-11-08T03:13:29.530Z\",\n      \"finished_at\": \"1995-12-14T09:14:13.318Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"type\": \"string\",\n      \"name\": \"string\",\n      \"step_key\": \"string\",\n      \"priority\": {},\n      \"agent_query_rules\": [\n        \"string\",\n        \"string\"\n      ],\n      \"state\": \"string\",\n      \"web_url\": \"string\",\n      \"log_url\": \"string\",\n      \"raw_log_url\": \"string\",\n      \"command\": \"string\",\n      \"soft_failed\": false,\n      \"exit_status\": 7346,\n      \"artifact_paths\": \"string\",\n      \"agent\": {\n        \"id\": \"string\",\n        \"url\": \"string\",\n        \"web_url\": \"string\",\n        \"name\": \"string\",\n        \"connection_state\": \"string\",\n        \"ip_address\": \"string\",\n        \"hostname\": \"string\",\n        \"user_agent\": \"string\",\n        \"version\": \"string\",\n        \"creator\": {\n          \"id\": \"string\",\n          \"graphql_id\": \"string\",\n          \"name\": \"string\",\n          \"email\": \"string\",\n          \"avatar_url\": \"string\",\n          \"created_at\": \"2006-02-04T22:27:59.208Z\"\n        },\n        \"created_at\": \"1972-01-25T23:04:45.586Z\",\n        \"meta_data\": [\n          \"string\",\n          \"string\"\n        ],\n        \"last_job_finished_at\": \"1957-11-29T09:05:44.038Z\",\n        \"priority\": 4865\n      },\n      \"created_at\": \"1973-10-16T21:18:57.790Z\",\n      \"scheduled_at\": \"2009-11-22T07:49:17.997Z\",\n      \"runnable_at\": \"1952-12-22T18:03:53.019Z\",\n      \"started_at\": \"1967-01-21T08:13:12.983Z\",\n      \"finished_at\": \"2006-05-03T18:39:34.156Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "767c2910-2044-485d-83b5-0028c62fa066",
+          "name": "Rebuild",
+          "request": {
+            "name": "Rebuild",
+            "description": {},
+            "url": {
+              "path": [
+                "organizations",
+                ":org",
+                "pipelines",
+                ":slug",
+                "builds",
+                ":number",
+                "rebuild"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "org",
+                  "description": "(Required) Organization slug."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "slug",
+                  "description": "(Required) Pipeline slug."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "number",
+                  "description": "(Required) Build number."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e1a09da8-1620-4282-8b17-c58634de1900",
+              "name": "New build",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizations",
+                    ":org",
+                    "pipelines",
+                    ":slug",
+                    "builds",
+                    ":number",
+                    "rebuild"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "org",
+                      "description": "(Required) Organization slug."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "slug",
+                      "description": "(Required) Pipeline slug."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "number",
+                      "description": "(Required) Build number."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"url\": \"string\",\n  \"web_url\": \"string\",\n  \"number\": 2471,\n  \"state\": \"string\",\n  \"message\": \"string\",\n  \"commit\": \"string\",\n  \"branch\": \"string\",\n  \"env\": {},\n  \"author\": {},\n  \"creator\": {\n    \"id\": \"string\",\n    \"graphql_id\": \"string\",\n    \"name\": \"string\",\n    \"email\": \"string\",\n    \"avatar_url\": \"string\",\n    \"created_at\": \"1954-04-11T04:11:06.309Z\"\n  },\n  \"source\": \"string\",\n  \"created_at\": \"2001-12-15T11:37:13.430Z\",\n  \"scheduled_at\": \"1956-10-21T00:05:08.993Z\",\n  \"started_at\": \"2024-06-15T21:52:14.526Z\",\n  \"finished_at\": \"1973-04-18T15:08:20.309Z\",\n  \"pipeline\": {\n    \"id\": \"string\",\n    \"url\": \"string\",\n    \"web_url\": \"string\",\n    \"name\": \"string\",\n    \"slug\": \"string\",\n    \"description\": \"string\",\n    \"repository\": \"string\",\n    \"cluster_id\": \"string\",\n    \"branch_configuration\": \"string\",\n    \"default_branch\": \"string\",\n    \"skip_queued_branch_builds\": false,\n    \"provider\": {},\n    \"builds_url\": \"string\",\n    \"badge_url\": \"string\",\n    \"created_at\": \"2013-02-10T15:33:39.970Z\",\n    \"archived_at\": \"1959-07-16T09:11:39.026Z\"\n  },\n  \"jobs\": [\n    {\n      \"id\": \"string\",\n      \"type\": \"string\",\n      \"name\": \"string\",\n      \"step_key\": \"string\",\n      \"priority\": {},\n      \"agent_query_rules\": [\n        \"string\",\n        \"string\"\n      ],\n      \"state\": \"string\",\n      \"web_url\": \"string\",\n      \"log_url\": \"string\",\n      \"raw_log_url\": \"string\",\n      \"command\": \"string\",\n      \"soft_failed\": true,\n      \"exit_status\": 3654,\n      \"artifact_paths\": \"string\",\n      \"agent\": {\n        \"id\": \"string\",\n        \"url\": \"string\",\n        \"web_url\": \"string\",\n        \"name\": \"string\",\n        \"connection_state\": \"string\",\n        \"ip_address\": \"string\",\n        \"hostname\": \"string\",\n        \"user_agent\": \"string\",\n        \"version\": \"string\",\n        \"creator\": {\n          \"id\": \"string\",\n          \"graphql_id\": \"string\",\n          \"name\": \"string\",\n          \"email\": \"string\",\n          \"avatar_url\": \"string\",\n          \"created_at\": \"1953-09-02T00:05:54.105Z\"\n        },\n        \"created_at\": \"1990-02-14T00:53:58.851Z\",\n        \"meta_data\": [\n          \"string\",\n          \"string\"\n        ],\n        \"last_job_finished_at\": \"1956-09-14T12:00:59.823Z\",\n        \"priority\": 7599\n      },\n      \"created_at\": \"2008-01-02T00:01:16.289Z\",\n      \"scheduled_at\": \"2022-05-29T13:33:00.568Z\",\n      \"runnable_at\": \"1972-01-23T15:44:20.073Z\",\n      \"started_at\": \"1981-11-08T03:13:29.530Z\",\n      \"finished_at\": \"1995-12-14T09:14:13.318Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"type\": \"string\",\n      \"name\": \"string\",\n      \"step_key\": \"string\",\n      \"priority\": {},\n      \"agent_query_rules\": [\n        \"string\",\n        \"string\"\n      ],\n      \"state\": \"string\",\n      \"web_url\": \"string\",\n      \"log_url\": \"string\",\n      \"raw_log_url\": \"string\",\n      \"command\": \"string\",\n      \"soft_failed\": false,\n      \"exit_status\": 7346,\n      \"artifact_paths\": \"string\",\n      \"agent\": {\n        \"id\": \"string\",\n        \"url\": \"string\",\n        \"web_url\": \"string\",\n        \"name\": \"string\",\n        \"connection_state\": \"string\",\n        \"ip_address\": \"string\",\n        \"hostname\": \"string\",\n        \"user_agent\": \"string\",\n        \"version\": \"string\",\n        \"creator\": {\n          \"id\": \"string\",\n          \"graphql_id\": \"string\",\n          \"name\": \"string\",\n          \"email\": \"string\",\n          \"avatar_url\": \"string\",\n          \"created_at\": \"2006-02-04T22:27:59.208Z\"\n        },\n        \"created_at\": \"1972-01-25T23:04:45.586Z\",\n        \"meta_data\": [\n          \"string\",\n          \"string\"\n        ],\n        \"last_job_finished_at\": \"1957-11-29T09:05:44.038Z\",\n        \"priority\": 4865\n      },\n      \"created_at\": \"1973-10-16T21:18:57.790Z\",\n      \"scheduled_at\": \"2009-11-22T07:49:17.997Z\",\n      \"runnable_at\": \"1952-12-22T18:03:53.019Z\",\n      \"started_at\": \"1967-01-21T08:13:12.983Z\",\n      \"finished_at\": \"2006-05-03T18:39:34.156Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.buildkite.com/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a8cb4057-fb7c-4d13-ad00-4b0e49684b9f",
+    "name": "Buildkite REST AccessToken Builds API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Best-effort OpenAPI 3.1 description of the Buildkite REST API for organizations, pipelines,\nbuilds, jobs, agents, artifacts, annotations, clusters, queues, agent tokens,\npipeline templates, rules, teams, and access tokens.\n\nAuthentication is via a Bearer token issued from the Buildkite UI.\n\n\nContact Support:\n Name: Buildkite",
+      "type": "text/plain"
+    }
+  }
+}

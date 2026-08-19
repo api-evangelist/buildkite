@@ -1,0 +1,218 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Buildkite REST AccessToken Artifacts API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Artifacts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List build artifacts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.buildkite.com/v2/organizations/:org/pipelines/:slug/builds/:number/artifacts",
+            "params": [
+              {
+                "name": "org",
+                "value": "",
+                "type": "path",
+                "description": "Organization slug."
+              },
+              {
+                "name": "slug",
+                "value": "",
+                "type": "path",
+                "description": "Pipeline slug."
+              },
+              {
+                "name": "number",
+                "value": "",
+                "type": "path",
+                "description": "Build number."
+              }
+            ]
+          },
+          "docs": "List build artifacts"
+        },
+        {
+          "info": {
+            "name": "List job artifacts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.buildkite.com/v2/organizations/:org/pipelines/:slug/builds/:number/jobs/:jobId/artifacts",
+            "params": [
+              {
+                "name": "org",
+                "value": "",
+                "type": "path",
+                "description": "Organization slug."
+              },
+              {
+                "name": "slug",
+                "value": "",
+                "type": "path",
+                "description": "Pipeline slug."
+              },
+              {
+                "name": "number",
+                "value": "",
+                "type": "path",
+                "description": "Build number."
+              },
+              {
+                "name": "jobId",
+                "value": "",
+                "type": "path",
+                "description": "Job ID."
+              }
+            ]
+          },
+          "docs": "List job artifacts"
+        },
+        {
+          "info": {
+            "name": "Get artifact",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.buildkite.com/v2/organizations/:org/pipelines/:slug/builds/:number/jobs/:jobId/artifacts/:id",
+            "params": [
+              {
+                "name": "org",
+                "value": "",
+                "type": "path",
+                "description": "Organization slug."
+              },
+              {
+                "name": "slug",
+                "value": "",
+                "type": "path",
+                "description": "Pipeline slug."
+              },
+              {
+                "name": "number",
+                "value": "",
+                "type": "path",
+                "description": "Build number."
+              },
+              {
+                "name": "jobId",
+                "value": "",
+                "type": "path",
+                "description": "Job ID."
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get artifact"
+        },
+        {
+          "info": {
+            "name": "Delete artifact",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.buildkite.com/v2/organizations/:org/pipelines/:slug/builds/:number/jobs/:jobId/artifacts/:id",
+            "params": [
+              {
+                "name": "org",
+                "value": "",
+                "type": "path",
+                "description": "Organization slug."
+              },
+              {
+                "name": "slug",
+                "value": "",
+                "type": "path",
+                "description": "Pipeline slug."
+              },
+              {
+                "name": "number",
+                "value": "",
+                "type": "path",
+                "description": "Build number."
+              },
+              {
+                "name": "jobId",
+                "value": "",
+                "type": "path",
+                "description": "Job ID."
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete artifact"
+        },
+        {
+          "info": {
+            "name": "Download artifact",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.buildkite.com/v2/organizations/:org/pipelines/:slug/builds/:number/jobs/:jobId/artifacts/:id/download",
+            "params": [
+              {
+                "name": "org",
+                "value": "",
+                "type": "path",
+                "description": "Organization slug."
+              },
+              {
+                "name": "slug",
+                "value": "",
+                "type": "path",
+                "description": "Pipeline slug."
+              },
+              {
+                "name": "number",
+                "value": "",
+                "type": "path",
+                "description": "Build number."
+              },
+              {
+                "name": "jobId",
+                "value": "",
+                "type": "path",
+                "description": "Job ID."
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Download artifact"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

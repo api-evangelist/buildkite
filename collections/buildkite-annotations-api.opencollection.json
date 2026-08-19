@@ -1,0 +1,126 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Buildkite REST AccessToken Annotations API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Annotations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List annotations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.buildkite.com/v2/organizations/:org/pipelines/:slug/builds/:number/annotations",
+            "params": [
+              {
+                "name": "org",
+                "value": "",
+                "type": "path",
+                "description": "Organization slug."
+              },
+              {
+                "name": "slug",
+                "value": "",
+                "type": "path",
+                "description": "Pipeline slug."
+              },
+              {
+                "name": "number",
+                "value": "",
+                "type": "path",
+                "description": "Build number."
+              }
+            ]
+          },
+          "docs": "List annotations"
+        },
+        {
+          "info": {
+            "name": "Create annotation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.buildkite.com/v2/organizations/:org/pipelines/:slug/builds/:number/annotations",
+            "params": [
+              {
+                "name": "org",
+                "value": "",
+                "type": "path",
+                "description": "Organization slug."
+              },
+              {
+                "name": "slug",
+                "value": "",
+                "type": "path",
+                "description": "Pipeline slug."
+              },
+              {
+                "name": "number",
+                "value": "",
+                "type": "path",
+                "description": "Build number."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create annotation"
+        },
+        {
+          "info": {
+            "name": "Delete annotation",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.buildkite.com/v2/organizations/:org/pipelines/:slug/builds/:number/annotations/:uuid",
+            "params": [
+              {
+                "name": "org",
+                "value": "",
+                "type": "path",
+                "description": "Organization slug."
+              },
+              {
+                "name": "slug",
+                "value": "",
+                "type": "path",
+                "description": "Pipeline slug."
+              },
+              {
+                "name": "number",
+                "value": "",
+                "type": "path",
+                "description": "Build number."
+              },
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete annotation"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

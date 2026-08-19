@@ -1,0 +1,139 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Buildkite REST AccessToken Agents API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Agents",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List agents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.buildkite.com/v2/organizations/:org/agents",
+            "params": [
+              {
+                "name": "org",
+                "value": "",
+                "type": "path",
+                "description": "Organization slug."
+              }
+            ]
+          },
+          "docs": "List agents"
+        },
+        {
+          "info": {
+            "name": "Get agent",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.buildkite.com/v2/organizations/:org/agents/:id",
+            "params": [
+              {
+                "name": "org",
+                "value": "",
+                "type": "path",
+                "description": "Organization slug."
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get agent"
+        },
+        {
+          "info": {
+            "name": "Stop agent",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.buildkite.com/v2/organizations/:org/agents/:id/stop",
+            "params": [
+              {
+                "name": "org",
+                "value": "",
+                "type": "path",
+                "description": "Organization slug."
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Stop agent"
+        },
+        {
+          "info": {
+            "name": "Pause agent",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.buildkite.com/v2/organizations/:org/agents/:id/pause",
+            "params": [
+              {
+                "name": "org",
+                "value": "",
+                "type": "path",
+                "description": "Organization slug."
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Pause agent"
+        },
+        {
+          "info": {
+            "name": "Resume agent",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.buildkite.com/v2/organizations/:org/agents/:id/resume",
+            "params": [
+              {
+                "name": "org",
+                "value": "",
+                "type": "path",
+                "description": "Organization slug."
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Resume agent"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

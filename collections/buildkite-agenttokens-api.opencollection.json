@@ -1,0 +1,172 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Buildkite REST AccessToken AgentTokens API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "AgentTokens",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List agent tokens",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.buildkite.com/v2/organizations/:org/clusters/:clusterId/tokens",
+            "params": [
+              {
+                "name": "org",
+                "value": "",
+                "type": "path",
+                "description": "Organization slug."
+              },
+              {
+                "name": "clusterId",
+                "value": "",
+                "type": "path",
+                "description": "Cluster ID."
+              }
+            ]
+          },
+          "docs": "List agent tokens"
+        },
+        {
+          "info": {
+            "name": "Create agent token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.buildkite.com/v2/organizations/:org/clusters/:clusterId/tokens",
+            "params": [
+              {
+                "name": "org",
+                "value": "",
+                "type": "path",
+                "description": "Organization slug."
+              },
+              {
+                "name": "clusterId",
+                "value": "",
+                "type": "path",
+                "description": "Cluster ID."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create agent token"
+        },
+        {
+          "info": {
+            "name": "Get agent token",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.buildkite.com/v2/organizations/:org/clusters/:clusterId/tokens/:id",
+            "params": [
+              {
+                "name": "org",
+                "value": "",
+                "type": "path",
+                "description": "Organization slug."
+              },
+              {
+                "name": "clusterId",
+                "value": "",
+                "type": "path",
+                "description": "Cluster ID."
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get agent token"
+        },
+        {
+          "info": {
+            "name": "Update agent token",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.buildkite.com/v2/organizations/:org/clusters/:clusterId/tokens/:id",
+            "params": [
+              {
+                "name": "org",
+                "value": "",
+                "type": "path",
+                "description": "Organization slug."
+              },
+              {
+                "name": "clusterId",
+                "value": "",
+                "type": "path",
+                "description": "Cluster ID."
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update agent token"
+        },
+        {
+          "info": {
+            "name": "Revoke agent token",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.buildkite.com/v2/organizations/:org/clusters/:clusterId/tokens/:id",
+            "params": [
+              {
+                "name": "org",
+                "value": "",
+                "type": "path",
+                "description": "Organization slug."
+              },
+              {
+                "name": "clusterId",
+                "value": "",
+                "type": "path",
+                "description": "Cluster ID."
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Revoke agent token"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

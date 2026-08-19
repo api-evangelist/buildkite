@@ -1,0 +1,967 @@
+{
+  "item": [
+    {
+      "id": "ee51514f-0894-4cba-96d5-acd7104bf881",
+      "name": "Jobs",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a6899e73-8c5b-4b6f-bba8-a7436b3705ab",
+          "name": "Retry a job",
+          "request": {
+            "name": "Retry a job",
+            "description": {},
+            "url": {
+              "path": [
+                "organizations",
+                ":org",
+                "pipelines",
+                ":slug",
+                "builds",
+                ":number",
+                "jobs",
+                ":jobId",
+                "retry"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "org",
+                  "description": "(Required) Organization slug."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "slug",
+                  "description": "(Required) Pipeline slug."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "number",
+                  "description": "(Required) Build number."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "jobId",
+                  "description": "(Required) Job ID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7745f5b0-536a-4685-a5a2-a7bd262ffa8b",
+              "name": "Job",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizations",
+                    ":org",
+                    "pipelines",
+                    ":slug",
+                    "builds",
+                    ":number",
+                    "jobs",
+                    ":jobId",
+                    "retry"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "org",
+                      "description": "(Required) Organization slug."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "slug",
+                      "description": "(Required) Pipeline slug."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "number",
+                      "description": "(Required) Build number."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "jobId",
+                      "description": "(Required) Job ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"type\": \"string\",\n  \"name\": \"string\",\n  \"step_key\": \"string\",\n  \"priority\": {},\n  \"agent_query_rules\": [\n    \"string\",\n    \"string\"\n  ],\n  \"state\": \"string\",\n  \"web_url\": \"string\",\n  \"log_url\": \"string\",\n  \"raw_log_url\": \"string\",\n  \"command\": \"string\",\n  \"soft_failed\": false,\n  \"exit_status\": 9636,\n  \"artifact_paths\": \"string\",\n  \"agent\": {\n    \"id\": \"string\",\n    \"url\": \"string\",\n    \"web_url\": \"string\",\n    \"name\": \"string\",\n    \"connection_state\": \"string\",\n    \"ip_address\": \"string\",\n    \"hostname\": \"string\",\n    \"user_agent\": \"string\",\n    \"version\": \"string\",\n    \"creator\": {\n      \"id\": \"string\",\n      \"graphql_id\": \"string\",\n      \"name\": \"string\",\n      \"email\": \"string\",\n      \"avatar_url\": \"string\",\n      \"created_at\": \"2025-08-25T08:49:49.700Z\"\n    },\n    \"created_at\": \"2000-05-22T00:14:42.615Z\",\n    \"meta_data\": [\n      \"string\",\n      \"string\"\n    ],\n    \"last_job_finished_at\": \"1968-06-28T12:47:47.443Z\",\n    \"priority\": 8414\n  },\n  \"created_at\": \"1999-02-26T12:27:44.872Z\",\n  \"scheduled_at\": \"1955-12-18T21:45:00.863Z\",\n  \"runnable_at\": \"2015-11-30T00:49:35.806Z\",\n  \"started_at\": \"2014-11-12T03:14:45.896Z\",\n  \"finished_at\": \"1991-06-09T00:48:29.037Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8c9bc47e-7169-4313-8581-66e1f1690a72",
+          "name": "Reprioritize a job",
+          "request": {
+            "name": "Reprioritize a job",
+            "description": {},
+            "url": {
+              "path": [
+                "organizations",
+                ":org",
+                "pipelines",
+                ":slug",
+                "builds",
+                ":number",
+                "jobs",
+                ":jobId",
+                "reprioritize"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "org",
+                  "description": "(Required) Organization slug."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "slug",
+                  "description": "(Required) Pipeline slug."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "number",
+                  "description": "(Required) Build number."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "jobId",
+                  "description": "(Required) Job ID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"priority\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "56ebe968-4a7b-48ed-95a7-9dab5833aedb",
+              "name": "Job",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizations",
+                    ":org",
+                    "pipelines",
+                    ":slug",
+                    "builds",
+                    ":number",
+                    "jobs",
+                    ":jobId",
+                    "reprioritize"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "org",
+                      "description": "(Required) Organization slug."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "slug",
+                      "description": "(Required) Pipeline slug."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "number",
+                      "description": "(Required) Build number."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "jobId",
+                      "description": "(Required) Job ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"priority\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"type\": \"string\",\n  \"name\": \"string\",\n  \"step_key\": \"string\",\n  \"priority\": {},\n  \"agent_query_rules\": [\n    \"string\",\n    \"string\"\n  ],\n  \"state\": \"string\",\n  \"web_url\": \"string\",\n  \"log_url\": \"string\",\n  \"raw_log_url\": \"string\",\n  \"command\": \"string\",\n  \"soft_failed\": false,\n  \"exit_status\": 9636,\n  \"artifact_paths\": \"string\",\n  \"agent\": {\n    \"id\": \"string\",\n    \"url\": \"string\",\n    \"web_url\": \"string\",\n    \"name\": \"string\",\n    \"connection_state\": \"string\",\n    \"ip_address\": \"string\",\n    \"hostname\": \"string\",\n    \"user_agent\": \"string\",\n    \"version\": \"string\",\n    \"creator\": {\n      \"id\": \"string\",\n      \"graphql_id\": \"string\",\n      \"name\": \"string\",\n      \"email\": \"string\",\n      \"avatar_url\": \"string\",\n      \"created_at\": \"2025-08-25T08:49:49.700Z\"\n    },\n    \"created_at\": \"2000-05-22T00:14:42.615Z\",\n    \"meta_data\": [\n      \"string\",\n      \"string\"\n    ],\n    \"last_job_finished_at\": \"1968-06-28T12:47:47.443Z\",\n    \"priority\": 8414\n  },\n  \"created_at\": \"1999-02-26T12:27:44.872Z\",\n  \"scheduled_at\": \"1955-12-18T21:45:00.863Z\",\n  \"runnable_at\": \"2015-11-30T00:49:35.806Z\",\n  \"started_at\": \"2014-11-12T03:14:45.896Z\",\n  \"finished_at\": \"1991-06-09T00:48:29.037Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "219bc151-6d8b-4219-af28-3192a28d6fd6",
+          "name": "Unblock a job",
+          "request": {
+            "name": "Unblock a job",
+            "description": {},
+            "url": {
+              "path": [
+                "organizations",
+                ":org",
+                "pipelines",
+                ":slug",
+                "builds",
+                ":number",
+                "jobs",
+                ":jobId",
+                "unblock"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "org",
+                  "description": "(Required) Organization slug."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "slug",
+                  "description": "(Required) Pipeline slug."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "number",
+                  "description": "(Required) Build number."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "jobId",
+                  "description": "(Required) Job ID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"unblocker\": \"<string>\",\n  \"fields\": {\n    \"key_0\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b24de3cd-c2b8-44b8-8a06-8030d53aa7d4",
+              "name": "Job",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizations",
+                    ":org",
+                    "pipelines",
+                    ":slug",
+                    "builds",
+                    ":number",
+                    "jobs",
+                    ":jobId",
+                    "unblock"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "org",
+                      "description": "(Required) Organization slug."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "slug",
+                      "description": "(Required) Pipeline slug."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "number",
+                      "description": "(Required) Build number."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "jobId",
+                      "description": "(Required) Job ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"unblocker\": \"<string>\",\n  \"fields\": {\n    \"key_0\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"type\": \"string\",\n  \"name\": \"string\",\n  \"step_key\": \"string\",\n  \"priority\": {},\n  \"agent_query_rules\": [\n    \"string\",\n    \"string\"\n  ],\n  \"state\": \"string\",\n  \"web_url\": \"string\",\n  \"log_url\": \"string\",\n  \"raw_log_url\": \"string\",\n  \"command\": \"string\",\n  \"soft_failed\": false,\n  \"exit_status\": 9636,\n  \"artifact_paths\": \"string\",\n  \"agent\": {\n    \"id\": \"string\",\n    \"url\": \"string\",\n    \"web_url\": \"string\",\n    \"name\": \"string\",\n    \"connection_state\": \"string\",\n    \"ip_address\": \"string\",\n    \"hostname\": \"string\",\n    \"user_agent\": \"string\",\n    \"version\": \"string\",\n    \"creator\": {\n      \"id\": \"string\",\n      \"graphql_id\": \"string\",\n      \"name\": \"string\",\n      \"email\": \"string\",\n      \"avatar_url\": \"string\",\n      \"created_at\": \"2025-08-25T08:49:49.700Z\"\n    },\n    \"created_at\": \"2000-05-22T00:14:42.615Z\",\n    \"meta_data\": [\n      \"string\",\n      \"string\"\n    ],\n    \"last_job_finished_at\": \"1968-06-28T12:47:47.443Z\",\n    \"priority\": 8414\n  },\n  \"created_at\": \"1999-02-26T12:27:44.872Z\",\n  \"scheduled_at\": \"1955-12-18T21:45:00.863Z\",\n  \"runnable_at\": \"2015-11-30T00:49:35.806Z\",\n  \"started_at\": \"2014-11-12T03:14:45.896Z\",\n  \"finished_at\": \"1991-06-09T00:48:29.037Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0db00d71-60c3-42aa-a34a-a664a5574950",
+          "name": "Get job log",
+          "request": {
+            "name": "Get job log",
+            "description": {},
+            "url": {
+              "path": [
+                "organizations",
+                ":org",
+                "pipelines",
+                ":slug",
+                "builds",
+                ":number",
+                "jobs",
+                ":jobId",
+                "log"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "org",
+                  "description": "(Required) Organization slug."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "slug",
+                  "description": "(Required) Pipeline slug."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "number",
+                  "description": "(Required) Build number."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "jobId",
+                  "description": "(Required) Job ID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b6745428-396c-4b16-90e2-b42de61bee96",
+              "name": "Log",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizations",
+                    ":org",
+                    "pipelines",
+                    ":slug",
+                    "builds",
+                    ":number",
+                    "jobs",
+                    ":jobId",
+                    "log"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "org",
+                      "description": "(Required) Organization slug."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "slug",
+                      "description": "(Required) Pipeline slug."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "number",
+                      "description": "(Required) Build number."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "jobId",
+                      "description": "(Required) Job ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"url\": \"string\",\n  \"content\": \"string\",\n  \"size\": 5053\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "780bbccd-c481-4994-9d4f-b9a2815630db",
+          "name": "Delete job log",
+          "request": {
+            "name": "Delete job log",
+            "description": {},
+            "url": {
+              "path": [
+                "organizations",
+                ":org",
+                "pipelines",
+                ":slug",
+                "builds",
+                ":number",
+                "jobs",
+                ":jobId",
+                "log"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "org",
+                  "description": "(Required) Organization slug."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "slug",
+                  "description": "(Required) Pipeline slug."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "number",
+                  "description": "(Required) Build number."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "jobId",
+                  "description": "(Required) Job ID."
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4cdd22a6-9043-425e-82ad-35001d39ac31",
+              "name": "Deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizations",
+                    ":org",
+                    "pipelines",
+                    ":slug",
+                    "builds",
+                    ":number",
+                    "jobs",
+                    ":jobId",
+                    "log"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "org",
+                      "description": "(Required) Organization slug."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "slug",
+                      "description": "(Required) Pipeline slug."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "number",
+                      "description": "(Required) Build number."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "jobId",
+                      "description": "(Required) Job ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2a84fcba-59b6-4c0b-adce-fe29701c558b",
+          "name": "Get job environment variables",
+          "request": {
+            "name": "Get job environment variables",
+            "description": {},
+            "url": {
+              "path": [
+                "organizations",
+                ":org",
+                "pipelines",
+                ":slug",
+                "builds",
+                ":number",
+                "jobs",
+                ":jobId",
+                "env"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "org",
+                  "description": "(Required) Organization slug."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "slug",
+                  "description": "(Required) Pipeline slug."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "number",
+                  "description": "(Required) Build number."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "jobId",
+                  "description": "(Required) Job ID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b8b2d81d-a95b-4326-a61e-0bc54e1fc19f",
+              "name": "Environment",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizations",
+                    ":org",
+                    "pipelines",
+                    ":slug",
+                    "builds",
+                    ":number",
+                    "jobs",
+                    ":jobId",
+                    "env"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "org",
+                      "description": "(Required) Organization slug."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "slug",
+                      "description": "(Required) Pipeline slug."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "number",
+                      "description": "(Required) Build number."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "jobId",
+                      "description": "(Required) Job ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"env\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.buildkite.com/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "4e49cb05-a757-47da-81d7-9ef315fdad9d",
+    "name": "Buildkite REST AccessToken Jobs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Best-effort OpenAPI 3.1 description of the Buildkite REST API for organizations, pipelines,\nbuilds, jobs, agents, artifacts, annotations, clusters, queues, agent tokens,\npipeline templates, rules, teams, and access tokens.\n\nAuthentication is via a Bearer token issued from the Buildkite UI.\n\n\nContact Support:\n Name: Buildkite",
+      "type": "text/plain"
+    }
+  }
+}

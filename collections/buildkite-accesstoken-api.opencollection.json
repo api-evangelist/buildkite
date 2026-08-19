@@ -1,0 +1,46 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Buildkite REST AccessToken API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "AccessToken",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get current access token",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.buildkite.com/v2/access-token"
+          },
+          "docs": "Get current access token"
+        },
+        {
+          "info": {
+            "name": "Revoke current access token",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.buildkite.com/v2/access-token"
+          },
+          "docs": "Revoke current access token"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
