@@ -47,6 +47,12 @@ apis:
   - Pipelines
   - Builds
   - Agents
+  - Cluster
+  tags_raw:
+  - REST
+  - Pipelines
+  - Builds
+  - Agents
   - Clusters
   properties:
   - type: Documentation
@@ -81,6 +87,10 @@ apis:
   baseURL: https://agent.buildkite.com/v3
   tags:
   - REST
+  - Agents
+  - Internal
+  tags_raw:
+  - REST
   - Agent
   - Internal
   properties:
@@ -92,6 +102,8 @@ apis:
   humanURL: https://buildkite.com/docs/apis/rest-api
   baseURL: https://api.buildkite.com/v2
   tags:
+  - Access Token
+  tags_raw:
   - AccessToken
   properties:
   - type: OpenAPI
@@ -112,6 +124,8 @@ apis:
   humanURL: https://buildkite.com/docs/apis/rest-api
   baseURL: https://api.buildkite.com/v2
   tags:
+  - Agent Tokens
+  tags_raw:
   - AgentTokens
   properties:
   - type: OpenAPI
@@ -152,6 +166,8 @@ apis:
   humanURL: https://buildkite.com/docs/apis/rest-api
   baseURL: https://api.buildkite.com/v2
   tags:
+  - Cluster
+  tags_raw:
   - Clusters
   properties:
   - type: OpenAPI
@@ -172,6 +188,8 @@ apis:
   humanURL: https://buildkite.com/docs/apis/rest-api
   baseURL: https://api.buildkite.com/v2
   tags:
+  - Job
+  tags_raw:
   - Jobs
   properties:
   - type: OpenAPI
@@ -192,6 +210,8 @@ apis:
   humanURL: https://buildkite.com/docs/apis/rest-api
   baseURL: https://api.buildkite.com/v2
   tags:
+  - Organization
+  tags_raw:
   - Organizations
   properties:
   - type: OpenAPI
@@ -212,6 +232,8 @@ apis:
   humanURL: https://buildkite.com/docs/apis/rest-api
   baseURL: https://api.buildkite.com/v2
   tags:
+  - Pipeline Templates
+  tags_raw:
   - PipelineTemplates
   properties:
   - type: OpenAPI
@@ -242,6 +264,8 @@ apis:
   humanURL: https://buildkite.com/docs/apis/rest-api
   baseURL: https://api.buildkite.com/v2
   tags:
+  - Team
+  tags_raw:
   - Teams
   properties:
   - type: OpenAPI
