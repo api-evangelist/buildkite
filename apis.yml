@@ -114,7 +114,7 @@ apis:
   humanURL: https://buildkite.com/docs/apis/rest-api
   baseURL: https://api.buildkite.com/v2
   tags:
-  - AccessToken
+  - Access Token
   tags_raw:
   - AccessToken
   properties:
@@ -136,7 +136,7 @@ apis:
   humanURL: https://buildkite.com/docs/apis/rest-api
   baseURL: https://api.buildkite.com/v2
   tags:
-  - AgentTokens
+  - Agent Tokens
   tags_raw:
   - AgentTokens
   properties:
@@ -244,7 +244,7 @@ apis:
   humanURL: https://buildkite.com/docs/apis/rest-api
   baseURL: https://api.buildkite.com/v2
   tags:
-  - PipelineTemplates
+  - Pipeline Templates
   tags_raw:
   - PipelineTemplates
   properties:
