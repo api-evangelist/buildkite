@@ -110,18 +110,6 @@ apis:
   properties:
   - type: Documentation
     url: https://buildkite.com/docs/apis/agent-api
-- aid: buildkite:buildkite-accesstoken-api
-  name: Buildkite AccessToken API
-  description: The AccessToken API from Buildkite — 1 operation(s) for accesstoken.
-  humanURL: https://buildkite.com/docs/apis/rest-api
-  baseURL: https://api.buildkite.com/v2
-  tags:
-  - Access Token
-  tags_raw:
-  - AccessToken
-  properties:
-  - type: OpenAPI
-    url: openapi/buildkite-accesstoken-api-openapi.yml
 - aid: buildkite:buildkite-agents-api
   name: Buildkite Agents API
   description: The Agents API from Buildkite — 5 operation(s) for agents.
@@ -132,18 +120,6 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/buildkite-agents-api-openapi.yml
-- aid: buildkite:buildkite-agenttokens-api
-  name: Buildkite AgentTokens API
-  description: The AgentTokens API from Buildkite — 2 operation(s) for agenttokens.
-  humanURL: https://buildkite.com/docs/apis/rest-api
-  baseURL: https://api.buildkite.com/v2
-  tags:
-  - Agent Tokens
-  tags_raw:
-  - AgentTokens
-  properties:
-  - type: OpenAPI
-    url: openapi/buildkite-agenttokens-api-openapi.yml
 - aid: buildkite:buildkite-annotations-api
   name: Buildkite Annotations API
   description: The Annotations API from Buildkite — 2 operation(s) for annotations.
@@ -240,18 +216,6 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/buildkite-pipelines-api-openapi.yml
-- aid: buildkite:buildkite-pipelinetemplates-api
-  name: Buildkite PipelineTemplates API
-  description: The PipelineTemplates API from Buildkite — 2 operation(s) for pipelinetemplates.
-  humanURL: https://buildkite.com/docs/apis/rest-api
-  baseURL: https://api.buildkite.com/v2
-  tags:
-  - Pipeline Templates
-  tags_raw:
-  - PipelineTemplates
-  properties:
-  - type: OpenAPI
-    url: openapi/buildkite-pipelinetemplates-api-openapi.yml
 - aid: buildkite:buildkite-queues-api
   name: Buildkite Queues API
   description: The Queues API from Buildkite — 4 operation(s) for queues.
@@ -294,6 +258,36 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/buildkite-user-api-openapi.yml
+- aid: buildkite:buildkite-access-token-api
+  name: Buildkite Access Token API
+  description: The Access Token API from Buildkite — 1 operation(s) for access token.
+  humanURL: https://buildkite.com/docs/apis/rest-api
+  baseURL: https://api.buildkite.com/v2
+  tags:
+  - Access Token
+  properties:
+  - type: OpenAPI
+    url: openapi/buildkite-access-token-api-openapi.yml
+- aid: buildkite:buildkite-agent-tokens-api
+  name: Buildkite Agent Tokens API
+  description: The Agent Tokens API from Buildkite — 2 operation(s) for agent tokens.
+  humanURL: https://buildkite.com/docs/apis/rest-api
+  baseURL: https://api.buildkite.com/v2
+  tags:
+  - Agent Tokens
+  properties:
+  - type: OpenAPI
+    url: openapi/buildkite-agent-tokens-api-openapi.yml
+- aid: buildkite:buildkite-pipeline-templates-api
+  name: Buildkite Pipeline Templates API
+  description: The Pipeline Templates API from Buildkite — 2 operation(s) for pipeline templates.
+  humanURL: https://buildkite.com/docs/apis/rest-api
+  baseURL: https://api.buildkite.com/v2
+  tags:
+  - Pipeline Templates
+  properties:
+  - type: OpenAPI
+    url: openapi/buildkite-pipeline-templates-api-openapi.yml
 common:
 - type: AgenticAccess
   url: agentic-access/buildkite-agentic-access.yml
