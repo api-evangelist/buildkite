@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Buildkite REST AccessToken Rules API
+  title: Buildkite REST Rules API
   description: 'Best-effort OpenAPI 3.1 description of the Buildkite REST API for organizations, pipelines,
 
     builds, jobs, agents, artifacts, annotations, clusters, queues, agent tokens,
@@ -8,9 +8,7 @@ info:
     pipeline templates, rules, teams, and access tokens.
 
 
-    Authentication is via a Bearer token issued from the Buildkite UI.
-
-    '
+    Authentication is via a Bearer token issued from the Buildkite UI.'
   version: '2.0'
   contact:
     name: Buildkite

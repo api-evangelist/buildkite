@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Buildkite REST AccessToken Organizations API
+  title: Buildkite REST Organizations API
   description: 'Best-effort OpenAPI 3.1 description of the Buildkite REST API for organizations, pipelines,
 
     builds, jobs, agents, artifacts, annotations, clusters, queues, agent tokens,
@@ -8,9 +8,7 @@ info:
     pipeline templates, rules, teams, and access tokens.
 
 
-    Authentication is via a Bearer token issued from the Buildkite UI.
-
-    '
+    Authentication is via a Bearer token issued from the Buildkite UI.'
   version: '2.0'
   contact:
     name: Buildkite
@@ -92,6 +90,20 @@ paths:
                 $ref: '#/components/schemas/Member'
 components:
   schemas:
+    Member:
+      type: object
+      properties:
+        id:
+          type: string
+        role:
+          type: string
+        sso_mode_enabled:
+          type: boolean
+        created_at:
+          type: string
+          format: date-time
+        user:
+          $ref: '#/components/schemas/User'
     User:
       type: object
       properties:
@@ -130,20 +142,6 @@ components:
         created_at:
           type: string
           format: date-time
-    Member:
-      type: object
-      properties:
-        id:
-          type: string
-        role:
-          type: string
-        sso_mode_enabled:
-          type: boolean
-        created_at:
-          type: string
-          format: date-time
-        user:
-          $ref: '#/components/schemas/User'
   parameters:
     Org:
       name: org

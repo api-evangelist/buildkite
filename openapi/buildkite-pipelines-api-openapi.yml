@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Buildkite REST AccessToken Pipelines API
+  title: Buildkite REST Pipelines API
   description: 'Best-effort OpenAPI 3.1 description of the Buildkite REST API for organizations, pipelines,
 
     builds, jobs, agents, artifacts, annotations, clusters, queues, agent tokens,
@@ -8,9 +8,7 @@ info:
     pipeline templates, rules, teams, and access tokens.
 
 
-    Authentication is via a Bearer token issued from the Buildkite UI.
-
-    '
+    Authentication is via a Bearer token issued from the Buildkite UI.'
   version: '2.0'
   contact:
     name: Buildkite
@@ -137,21 +135,6 @@ paths:
         '200':
           description: Webhook
 components:
-  parameters:
-    PipelineSlug:
-      name: slug
-      in: path
-      required: true
-      description: Pipeline slug.
-      schema:
-        type: string
-    Org:
-      name: org
-      in: path
-      required: true
-      description: Organization slug.
-      schema:
-        type: string
   schemas:
     PipelineCreate:
       type: object
@@ -210,6 +193,21 @@ components:
           - string
           - 'null'
           format: date-time
+  parameters:
+    PipelineSlug:
+      name: slug
+      in: path
+      required: true
+      description: Pipeline slug.
+      schema:
+        type: string
+    Org:
+      name: org
+      in: path
+      required: true
+      description: Organization slug.
+      schema:
+        type: string
   securitySchemes:
     bearerAuth:
       type: http

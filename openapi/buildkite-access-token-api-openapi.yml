@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Buildkite REST AccessToken API
+  title: Buildkite REST Access Token API
   description: 'Best-effort OpenAPI 3.1 description of the Buildkite REST API for organizations, pipelines,
 
     builds, jobs, agents, artifacts, annotations, clusters, queues, agent tokens,
@@ -8,9 +8,7 @@ info:
     pipeline templates, rules, teams, and access tokens.
 
 
-    Authentication is via a Bearer token issued from the Buildkite UI.
-
-    '
+    Authentication is via a Bearer token issued from the Buildkite UI.'
   version: '2.0'
   contact:
     name: Buildkite
@@ -21,12 +19,12 @@ servers:
 security:
 - bearerAuth: []
 tags:
-- name: AccessToken
+- name: Access Token
 paths:
   /access-token:
     get:
       tags:
-      - AccessToken
+      - Access Token
       summary: Get current access token
       operationId: getAccessToken
       responses:
@@ -38,7 +36,7 @@ paths:
                 $ref: '#/components/schemas/AccessToken'
     delete:
       tags:
-      - AccessToken
+      - Access Token
       summary: Revoke current access token
       operationId: revokeAccessToken
       responses:

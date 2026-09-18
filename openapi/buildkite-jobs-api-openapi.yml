@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Buildkite REST AccessToken Jobs API
+  title: Buildkite REST Jobs API
   description: 'Best-effort OpenAPI 3.1 description of the Buildkite REST API for organizations, pipelines,
 
     builds, jobs, agents, artifacts, annotations, clusters, queues, agent tokens,
@@ -8,9 +8,7 @@ info:
     pipeline templates, rules, teams, and access tokens.
 
 
-    Authentication is via a Bearer token issued from the Buildkite UI.
-
-    '
+    Authentication is via a Bearer token issued from the Buildkite UI.'
   version: '2.0'
   contact:
     name: Buildkite
@@ -156,6 +154,35 @@ paths:
                     additionalProperties:
                       type: string
 components:
+  parameters:
+    Org:
+      name: org
+      in: path
+      required: true
+      description: Organization slug.
+      schema:
+        type: string
+    PipelineSlug:
+      name: slug
+      in: path
+      required: true
+      description: Pipeline slug.
+      schema:
+        type: string
+    JobId:
+      name: jobId
+      in: path
+      required: true
+      description: Job ID.
+      schema:
+        type: string
+    BuildNumber:
+      name: number
+      in: path
+      required: true
+      description: Build number.
+      schema:
+        type: integer
   schemas:
     User:
       type: object
@@ -173,6 +200,43 @@ components:
         created_at:
           type: string
           format: date-time
+    Agent:
+      type: object
+      properties:
+        id:
+          type: string
+        url:
+          type: string
+        web_url:
+          type: string
+        name:
+          type: string
+        connection_state:
+          type: string
+        ip_address:
+          type: string
+        hostname:
+          type: string
+        user_agent:
+          type: string
+        version:
+          type: string
+        creator:
+          $ref: '#/components/schemas/User'
+        created_at:
+          type: string
+          format: date-time
+        meta_data:
+          type: array
+          items:
+            type: string
+        last_job_finished_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        priority:
+          type: integer
     Job:
       type: object
       properties:
@@ -233,72 +297,6 @@ components:
           - string
           - 'null'
           format: date-time
-    Agent:
-      type: object
-      properties:
-        id:
-          type: string
-        url:
-          type: string
-        web_url:
-          type: string
-        name:
-          type: string
-        connection_state:
-          type: string
-        ip_address:
-          type: string
-        hostname:
-          type: string
-        user_agent:
-          type: string
-        version:
-          type: string
-        creator:
-          $ref: '#/components/schemas/User'
-        created_at:
-          type: string
-          format: date-time
-        meta_data:
-          type: array
-          items:
-            type: string
-        last_job_finished_at:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        priority:
-          type: integer
-  parameters:
-    PipelineSlug:
-      name: slug
-      in: path
-      required: true
-      description: Pipeline slug.
-      schema:
-        type: string
-    BuildNumber:
-      name: number
-      in: path
-      required: true
-      description: Build number.
-      schema:
-        type: integer
-    JobId:
-      name: jobId
-      in: path
-      required: true
-      description: Job ID.
-      schema:
-        type: string
-    Org:
-      name: org
-      in: path
-      required: true
-      description: Organization slug.
-      schema:
-        type: string
   securitySchemes:
     bearerAuth:
       type: http
